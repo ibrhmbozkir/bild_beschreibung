@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Bild 33 – Lesen im Grünen | Ibrahim</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f5f2ec;
+    }
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 24px;
+      background: #fff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+      position: sticky;
+      top: 0;
+      z-index: 5;
+    }
+    .topbar-title {
+      font-weight: 600;
+      font-size: 18px;
+    }
+    .topbar-buttons button {
+      margin-left: 8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-size: 13px;
+    }
+    .btn-primary { background: #5c7cff; color: #fff; }
+    .btn-ghost { background: #f3f3f8; }
+    .btn-green { background: #3bbf7a; color: #fff; }
+    .btn-orange { background: #ffb34d; color: #fff; }
+
+    .layout {
+      display: flex;
+      max-width: 1200px;
+      margin: 24px auto 40px;
+      padding: 0 16px;
+      gap: 18px;
+    }
+    .image-col {
+      flex: 1.1;
+      position: relative;
+      background: #111;
+      border-radius: 18px;
+      overflow: hidden;
+      min-height: 420px;
+    }
+    .image-col img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hotspot {
+      position: absolute;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 3px solid #fff;
+      background: #ff9a2f;
+      cursor: pointer;
+      box-shadow: 0 0 0 4px rgba(255,154,47,0.4);
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .hotspot:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 0 6px rgba(255,154,47,0.7);
+    }
+
+    .tooltip-box {
+      position: absolute;
+      left: 16px;
+      bottom: 16px;
+      max-width: 80%;
+      background: rgba(0,0,0,0.78);
+      color: #fff;
+      padding: 10px 12px;
+      border-radius: 12px;
+      font-size: 13px;
+      line-height: 1.4;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    }
+    .tooltip-box.hidden {
+      display: none;
+    }
+    .tooltip-lang {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      opacity: 0.8;
+    }
+    .tooltip-de { margin-bottom: 4px; }
+
+    .text-col {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .panel {
+      background: #fff;
+      border-radius: 16px;
+      padding: 12px 14px;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+      font-size: 14px;
+    }
+    .panel-title {
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .panel.badge-blue    { border-left: 6px solid #4d9fff; }
+    .panel.badge-green   { border-left: 6px solid #58c27d; }
+    .panel.badge-orange  { border-left: 6px solid #ff9a2f; }
+    .panel.badge-purple  { border-left: 6px solid #b46dff; }
+    .panel ul {
+      margin: 4px 0 0;
+      padding-left: 18px;
+    }
+    .panel li { margin-bottom: 2px; }
+    .mini-label { font-weight: 600; }
+
+    @media (max-width: 900px) {
+      .layout { flex-direction: column; }
+      .image-col { min-height: 300px; }
+      .tooltip-box { max-width: calc(100% - 32px); }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-title">Entspannung und Lesen im Grünen – Bild 33</div>
+    <div class="topbar-buttons">
+      <a href="index.html"><button class="btn-ghost">Startseite</button></a>
+      <button class="btn-primary">Timer Start (später)</button>
+      <button class="btn-green">B1 Text</button>
+      <button class="btn-orange">DE / TR</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="image-col">
+      <img src="bilder/bild33.jpg" alt="Frau liest ein Buch im Garten">
+
+      <button class="hotspot"
+              style="top: 22%; left: 30%;"
+              data-de="Eine junge Frau sitzt entspannt auf einer Holzbank."
+              data-tr="Genç bir kadın rahat bir şekilde tahta bir bankta oturuyor.">
+      </button>
+
+      <button class="hotspot"
+              style="top: 55%; left: 50%;"
+              data-de="Sie hält ein aufgeschlagenes Buch in der Hand und liest konzentriert."
+              data-tr="Elinde açık bir kitap tutuyor ve dikkatle okuyor.">
+      </button>
+
+      <button class="hotspot"
+              style="top: 70%; left: 15%;"
+              data-de="Im Hintergrund sieht man viel Grün – Bäume, Gras und Büsche."
+              data-tr="Arka planda ağaçlar, çimen ve çalılar gibi çok fazla yeşillik görülüyor.">
+      </button>
+
+      <div id="tooltip" class="tooltip-box hidden">
+        <div class="tooltip-lang">Deutsch</div>
+        <div class="tooltip-de"></div>
+        <div class="tooltip-lang" style="margin-top:6px;">Türkisch</div>
+        <div class="tooltip-tr"></div>
+      </div>
+    </section>
+
+    <section class="text-col">
+      <article class="panel badge-blue">
+        <div class="panel-title">👤 Personenbeschreibung (B1)</div>
+        <ul>
+          <li><span class="mini-label">Die Person:</span> Eine junge Frau mit langen Haaren, die alleine im Garten sitzt.</li>
+          <li><span class="mini-label">Die Aktion:</span> Sie liest ein Buch und wirkt ruhig und konzentriert.</li>
+          <li><span class="mini-label">Die Stimmung:</span> Die Atmosphäre ist entspannt, friedlich und sommerlich.</li>
+        </ul>
+      </article>
+
+      <article class="panel badge-green">
+        <div class="panel-title">🌿 Bildbeschreibung</div>
+        <ul>
+          <li><span class="mini-label">Vordergrund:</span> Die Frau sitzt auf einem Holzstuhl, neben ihr steht ein kleiner Tisch.</li>
+          <li><span class="mini-label">Hintergrund:</span> Man sieht grüne Pflanzen, Bäume und eine gepflegte Wiese.</li>
+          <li><span class="mini-label">Szene:</span> Ein privater Garten an einem warmen Tag, der zum Entspannen einlädt.</li>
+        </ul>
+      </article>
+
+      <article class="panel badge-orange">
+        <div class="panel-title">💬 Thema & persönliche Meinung</div>
+        <ul>
+          <li><span class="mini-label">Thema:</span> Freizeit, Entspannung und die Bedeutung von Natur für die Erholung.</li>
+          <li><span class="mini-label">Meine Meinung:</span> Ich finde es sehr angenehm, draußen im Grünen zu lesen, weil ich dort besser abschalten kann.</li>
+          <li><span class="mini-label">In meinem Land:</span> Viele Menschen gehen in den Park, um frische Luft zu genießen und zu lesen.</li>
+        </ul>
+      </article>
+
+      <article class="panel badge-purple">
+        <div class="panel-title">⚖️ Vor- und Nachteile</div>
+        <ul>
+          <li><span class="mini-label">Vorteile:</span> Frische Luft, Ruhe, weniger Ablenkung, gute Atmosphäre zum Lesen.</li>
+          <li><span class="mini-label">Nachteile:</span> Insekten, Wetter kann sich ändern, manchmal ist es draußen zu laut.</li>
+        </ul>
+      </article>
+    </section>
+  </main>
+
+  <script>
+    const tooltip = document.getElementById('tooltip');
+    const tooltipDe = tooltip.querySelector('.tooltip-de');
+    const tooltipTr = tooltip.querySelector('.tooltip-tr');
+
+    document.querySelectorAll('.hotspot').forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.stopPropagation();
+        tooltipDe.textContent = btn.dataset.de;
+        tooltipTr.textContent = btn.dataset.tr;
+        tooltip.classList.remove('hidden');
+      });
+    });
+
+    document.addEventListener('click', e => {
+      if (!tooltip.classList.contains('hidden') &&
+          !tooltip.contains(e.target) &&
+          !e.target.classList.contains('hotspot')) {
+        tooltip.classList.add('hidden');
+      }
+    });
+  </script>
+</body>
+</html>
