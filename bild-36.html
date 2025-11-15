@@ -1,60 +1,144 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Bild 36 – Arbeiten im Home-Office trotz Erkältung | Ibrahim</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-    * { box-sizing: border-box; }
-    body {
+    :root {
+      --bg-body: #f4efe8;
+      --bg-card: #ffffff;
+      --accent-blue: #3f82ff;
+      --accent-green: #28c08a;
+      --accent-orange: #ff9d42;
+      --accent-purple: #b476ff;
+      --text-main: #18181b;
+      --text-muted: #6b7280;
+      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.18);
+      --radius-lg: 22px;
+    }
+
+    * {
+      box-sizing: border-box;
       margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #f5f2ec;
+      padding: 0;
     }
-    .topbar {
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: radial-gradient(circle at top left, #e5d5ff, #f4efe8 50%, #fdf6e3);
+      color: var(--text-main);
+      min-height: 100vh;
+    }
+
+    header.page-header {
+      padding: 18px 18px 0;
+    }
+
+    .page-header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding: 12px 24px;
-      background: #fff;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-      position: sticky;
-      top: 0;
-      z-index: 5;
+      justify-content: space-between;
+      gap: 16px;
     }
-    .topbar-title {
-      font-weight: 600;
-      font-size: 18px;
+
+    .page-title-block h1 {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 0.01em;
     }
-    .topbar-buttons button {
-      margin-left: 8px;
-      padding: 6px 10px;
+
+    .page-title-block p {
+      margin-top: 4px;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
       border-radius: 999px;
       border: none;
-      cursor: pointer;
       font-size: 13px;
+      padding: 6px 14px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
     }
-    .btn-primary { background: #5c7cff; color: #fff; }
-    .btn-ghost { background: #f3f3f8; }
-    .btn-green { background: #3bbf7a; color: #fff; }
-    .btn-orange { background: #ffb34d; color: #fff; }
 
-    .layout {
-      display: flex;
+    .btn-ghost {
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: var(--text-main);
+    }
+
+    .btn-primary {
+      background: var(--accent-blue);
+      color: #fff;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      color: var(--text-main);
+    }
+
+    .timer-pill {
+      font-size: 13px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.08);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .timer-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #ef4444;
+      box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.3);
+    }
+
+    main.layout {
       max-width: 1200px;
-      margin: 24px auto 40px;
-      padding: 0 16px;
-      gap: 18px;
+      margin: 18px auto 40px;
+      padding: 0 18px 24px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+      gap: 20px;
     }
-    .image-col {
-      flex: 1.1;
-      position: relative;
-      background: #111;
-      border-radius: 18px;
+
+    .image-card {
+      background: #020617;
+      border-radius: var(--radius-lg);
       overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      position: relative;
       min-height: 420px;
+      display: flex;
+      align-items: stretch;
+      justify-content: stretch;
     }
-    .image-col img {
+
+    .image-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .image-card-inner img {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -67,173 +151,427 @@
       height: 22px;
       border-radius: 50%;
       border: 3px solid #fff;
-      background: #ff9a2f;
+      background: var(--accent-orange);
       cursor: pointer;
-      box-shadow: 0 0 0 4px rgba(255,154,47,0.4);
-      transition: transform 0.1s ease, box-shadow 0.1s ease;
-    }
-    .hotspot:hover {
-      transform: scale(1.1);
-      box-shadow: 0 0 0 6px rgba(255,154,47,0.7);
+      box-shadow: 0 0 0 4px rgba(255, 157, 66, 0.52);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.12s ease, box-shadow 0.12s ease,
+        background 0.12s ease;
     }
 
-    .tooltip-box {
+    .hotspot::after {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #fff;
+    }
+
+    .hotspot:hover {
+      transform: scale(1.1) translateY(-1px);
+      box-shadow: 0 0 0 6px rgba(255, 157, 66, 0.75);
+      background: #ffb15f;
+    }
+
+    .hotspot-label {
       position: absolute;
-      left: 16px;
-      bottom: 16px;
-      max-width: 80%;
-      background: rgba(0,0,0,0.78);
-      color: #fff;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.84);
+      color: #f9fafb;
+      font-size: 11px;
+      white-space: nowrap;
+      transform: translate(-50%, calc(-100% - 8px));
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.12s ease;
+    }
+
+    .hotspot:hover .hotspot-label {
+      opacity: 1;
+    }
+
+    .overlay-panel {
+      position: absolute;
+      left: 12px;
+      right: 12px;
+      bottom: 12px;
+      border-radius: 16px;
+      background: linear-gradient(
+        to top,
+        rgba(15, 23, 42, 0.9),
+        rgba(15, 23, 42, 0.7)
+      );
+      color: #e5e7eb;
       padding: 10px 12px;
-      border-radius: 12px;
       font-size: 13px;
       line-height: 1.4;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-    }
-    .tooltip-box.hidden {
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.65);
       display: none;
     }
-    .tooltip-lang {
+
+    .overlay-panel.visible {
+      display: block;
+    }
+
+    .overlay-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+      gap: 8px;
+    }
+
+    .overlay-tags {
+      display: flex;
+      gap: 6px;
       font-size: 11px;
+    }
+
+    .tag {
+      padding: 2px 8px;
+      border-radius: 999px;
       text-transform: uppercase;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.05em;
+      background: rgba(148, 163, 184, 0.35);
+    }
+
+    .overlay-close {
+      border: none;
+      background: transparent;
+      color: #e5e7eb;
+      cursor: pointer;
+      font-size: 18px;
+      line-height: 1;
       opacity: 0.8;
     }
-    .tooltip-de { margin-bottom: 4px; }
 
-    .text-col {
-      flex: 1;
+    .overlay-close:hover {
+      opacity: 1;
+    }
+
+    .overlay-de {
+      margin-bottom: 4px;
+    }
+
+    .overlay-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: rgba(209, 213, 219, 0.9);
+    }
+
+    .overlay-text {
+      margin-top: 1px;
+    }
+
+    .side-column {
       display: flex;
       flex-direction: column;
       gap: 12px;
     }
+
     .panel {
-      background: #fff;
-      border-radius: 16px;
-      padding: 12px 14px;
-      box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+      background: var(--bg-card);
+      border-radius: 18px;
+      padding: 12px 14px 12px;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.12);
       font-size: 14px;
     }
-    .panel-title {
-      font-weight: 700;
+
+    .panel-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
       margin-bottom: 4px;
     }
-    .panel.badge-blue    { border-left: 6px solid #4d9fff; }
-    .panel.badge-green   { border-left: 6px solid #58c27d; }
-    .panel.badge-orange  { border-left: 6px solid #ff9a2f; }
-    .panel.badge-purple  { border-left: 6px solid #b46dff; }
-    .panel ul {
-      margin: 4px 0 0;
-      padding-left: 18px;
+
+    .panel-header span.icon {
+      width: 20px;
+      height: 20px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: #fff;
     }
-    .panel li { margin-bottom: 2px; }
-    .mini-label { font-weight: 600; }
+
+    .panel-header h2 {
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .panel.person .panel-header span.icon {
+      background: var(--accent-blue);
+    }
+    .panel.person {
+      border-left: 4px solid var(--accent-blue);
+    }
+
+    .panel.scene .panel-header span.icon {
+      background: var(--accent-green);
+    }
+    .panel.scene {
+      border-left: 4px solid var(--accent-green);
+    }
+
+    .panel.opinion .panel-header span.icon {
+      background: var(--accent-orange);
+    }
+    .panel.opinion {
+      border-left: 4px solid var(--accent-orange);
+    }
+
+    .panel.proscons .panel-header span.icon {
+      background: var(--accent-purple);
+    }
+    .panel.proscons {
+      border-left: 4px solid var(--accent-purple);
+    }
+
+    .panel ul {
+      list-style: disc;
+      padding-left: 18px;
+      margin-top: 2px;
+    }
+
+    .panel li {
+      margin-bottom: 3px;
+    }
+
+    .label-strong {
+      font-weight: 600;
+    }
 
     @media (max-width: 900px) {
-      .layout { flex-direction: column; }
-      .image-col { min-height: 300px; }
-      .tooltip-box { max-width: calc(100% - 32px); }
+      header.page-header {
+        padding: 14px 12px 0;
+      }
+      .page-header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      main.layout {
+        grid-template-columns: minmax(0, 1fr);
+        padding: 0 12px 20px;
+      }
+      .image-card {
+        min-height: 360px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .page-title-block h1 {
+        font-size: 20px;
+      }
+      .page-title-block p {
+        font-size: 13px;
+      }
+      .panel {
+        font-size: 13px;
+      }
     }
   </style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="topbar-title">Arbeiten im Home-Office trotz Erkältung – Bild 36</div>
-    <div class="topbar-buttons">
-      <a href="index.html"><button class="btn-ghost">Startseite</button></a>
-      <button class="btn-primary">Timer Start (später)</button>
-      <button class="btn-green">B1 Text</button>
-      <button class="btn-orange">DE / TR</button>
+  <!-- Üst başlık -->
+  <header class="page-header">
+    <div class="page-header-inner">
+      <div class="page-title-block">
+        <h1>Arbeiten im Home-Office trotz Erkältung – Bild&nbsp;36</h1>
+        <p>
+          Bildbeschreibung-Training (B1) mit klickbaren Punkten und
+          deutsch–türkischer Erklärung.
+        </p>
+      </div>
+      <div class="top-actions">
+        <a href="index.html"><button class="btn btn-ghost">Startseite</button></a>
+        <button class="btn btn-outline">Nur Bildbeschreibung üben</button>
+        <div class="timer-pill">
+          <span class="timer-dot"></span>
+          <span>Zeit: 00:00</span>
+        </div>
+      </div>
     </div>
   </header>
 
   <main class="layout">
-    <section class="image-col">
-      <img src="bilder/bild36.jpg" alt="Mann arbeitet krank von zu Hause">
+    <!-- SOL: Resim + Hotspots -->
+    <section class="image-card">
+      <div class="image-card-inner">
+        <img
+          src="bilder/bild36.jpg"
+          alt="Mann arbeitet krank im Home-Office am Laptop"
+        />
 
-      <button class="hotspot"
-              style="top: 40%; left: 35%;"
-              data-de="Ein Mann mittleren Alters sitzt auf dem Sofa und arbeitet am Laptop."
-              data-tr="Orta yaşlı bir adam kanepede oturuyor ve dizüstü bilgisayarda çalışıyor.">
-      </button>
+        <!-- Hotspot 1: Mann + Sofa -->
+        <button
+          class="hotspot"
+          style="top: 42%; left: 38%;"
+          data-short="Mann im Home-Office"
+          data-de="Ein Mann mittleren Alters sitzt auf dem Sofa und arbeitet am Laptop."
+          data-tr="Orta yaşlı bir adam kanepede oturuyor ve dizüstü bilgisayarda çalışıyor."
+        >
+          <span class="hotspot-label">Mann + Laptop</span>
+        </button>
 
-      <button class="hotspot"
-              style="top: 60%; left: 25%;"
-              data-de="Er ist in eine dicke Decke eingewickelt, weil er erkältet ist."
-              data-tr="Soğuk algınlığı olduğu için kalın bir battaniyeye sarınmış.">
-      </button>
+        <!-- Hotspot 2: Decke -->
+        <button
+          class="hotspot"
+          style="top: 60%; left: 30%;"
+          data-short="Warme Decke"
+          data-de="Er ist in eine dicke, graue Decke eingewickelt, weil er erkältet ist."
+          data-tr="Soğuk algınlığı olduğu için kalın, gri bir battaniyeye sarınmış."
+        >
+          <span class="hotspot-label">Decke</span>
+        </button>
 
-      <button class="hotspot"
-              style="top: 70%; left: 55%;"
-              data-de="Auf dem Tisch stehen eine Tasse Tee und Taschentücher."
-              data-tr="Masada bir fincan çay ve kağıt mendiller duruyor.">
-      </button>
+        <!-- Hotspot 3: Tisch + Taschentücher -->
+        <button
+          class="hotspot"
+          style="top: 72%; left: 55%;"
+          data-short="Tee & Taschentücher"
+          data-de="Auf dem Tisch vor ihm stehen eine Tasse Tee und mehrere Taschentücher."
+          data-tr="Önündeki masada bir fincan çay ve birkaç kâğıt mendil duruyor."
+        >
+          <span class="hotspot-label">Tee &amp; Taschentücher</span>
+        </button>
 
-      <div id="tooltip" class="tooltip-box hidden">
-        <div class="tooltip-lang">Deutsch</div>
-        <div class="tooltip-de"></div>
-        <div class="tooltip-lang" style="margin-top:6px;">Türkisch</div>
-        <div class="tooltip-tr"></div>
+        <!-- Alt panel: DE / TR açıklama -->
+        <div id="overlay" class="overlay-panel">
+          <div class="overlay-header">
+            <div class="overlay-tags">
+              <span class="tag">Deutsch</span>
+              <span class="tag">Türkisch</span>
+            </div>
+            <button class="overlay-close" aria-label="Schließen">&times;</button>
+          </div>
+          <div class="overlay-de">
+            <div class="overlay-label">Deutsch</div>
+            <div class="overlay-text" id="overlay-de-text">
+              Klicke auf einen Punkt im Bild.
+            </div>
+          </div>
+          <div class="overlay-tr">
+            <div class="overlay-label">Türkisch</div>
+            <div class="overlay-text" id="overlay-tr-text">
+              Resimdeki noktalardan birine tıkla.
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="text-col">
-      <article class="panel badge-blue">
-        <div class="panel-title">👤 Personenbeschreibung (B1)</div>
+    <!-- SAĞ: Yapılandırılmış metinler -->
+    <section class="side-column">
+      <article class="panel person">
+        <div class="panel-header">
+          <span class="icon">👤</span>
+          <h2>Personenbeschreibung (B1)</h2>
+        </div>
         <ul>
-          <li><span class="mini-label">Die Person:</span> Ein Mann mittleren Alters, der krank aussieht und müde wirkt.</li>
-          <li><span class="mini-label">Die Aktion:</span> Er sitzt auf dem Sofa, arbeitet am Laptop und scheint sich nicht richtig ausruhen zu können.</li>
-          <li><span class="mini-label">Die Stimmung:</span> Die Atmosphäre ist etwas gedrückt, er wirkt angespannt und nicht ganz fit.</li>
+          <li>
+            <span class="label-strong">Die Person:</span> Ein Mann mittleren Alters,
+            der krank aussieht und müde wirkt.
+          </li>
+          <li>
+            <span class="label-strong">Die Aktion:</span> Er sitzt auf dem Sofa und
+            arbeitet am Laptop, obwohl er sich nicht richtig ausruhen kann.
+          </li>
+          <li>
+            <span class="label-strong">Die Stimmung:</span> Die Atmosphäre ist etwas
+            gedrückt, er wirkt angespannt und nicht ganz fit.
+          </li>
         </ul>
       </article>
 
-      <article class="panel badge-green">
-        <div class="panel-title">🏠 Bildbeschreibung</div>
+      <article class="panel scene">
+        <div class="panel-header">
+          <span class="icon">🏠</span>
+          <h2>Bildbeschreibung</h2>
+        </div>
         <ul>
-          <li><span class="mini-label">Vordergrund:</span> Der Mann ist in eine graue Decke eingewickelt, neben ihm liegen Taschentücher.</li>
-          <li><span class="mini-label">Hintergrund:</span> Ein helles Wohnzimmer mit Sofa, Kissen, einer Lampe und ein paar Pflanzen.</li>
-          <li><span class="mini-label">Szene:</span> Eine typische Home-Office-Situation, aber unter dem Einfluss einer Erkältung.</li>
+          <li>
+            <span class="label-strong">Vordergrund:</span> Der Mann ist in eine graue
+            Decke eingewickelt, neben ihm liegen Taschentücher.
+          </li>
+          <li>
+            <span class="label-strong">Hintergrund:</span> Ein helles Wohnzimmer mit
+            Sofa, Kissen, einem Regal und ein paar Pflanzen.
+          </li>
+          <li>
+            <span class="label-strong">Szene:</span> Eine typische Home-Office-Situation,
+            aber unter dem Einfluss einer Erkältung.
+          </li>
         </ul>
       </article>
 
-      <article class="panel badge-orange">
-        <div class="panel-title">💬 Thema & persönliche Meinung</div>
+      <article class="panel opinion">
+        <div class="panel-header">
+          <span class="icon">💬</span>
+          <h2>Thema & persönliche Meinung</h2>
+        </div>
         <ul>
-          <li><span class="mini-label">Thema:</span> Home-Office, Krankheit und die Frage, ob man trotz Erkältung arbeiten sollte.</li>
-          <li><span class="mini-label">Meine Meinung:</span> Ich finde, man sollte sich bei Krankheit lieber ausruhen, damit man schneller gesund wird.</li>
-          <li><span class="mini-label">In meinem Land:</span> Viele Menschen arbeiten trotzdem weiter, auch wenn sie krank sind, weil sie Angst haben, ihre Arbeit zu verlieren.</li>
+          <li>
+            <span class="label-strong">Thema:</span> Home-Office, Krankheit und die
+            Frage, ob man trotz Erkältung arbeiten sollte.
+          </li>
+          <li>
+            <span class="label-strong">Meine Meinung:</span> Ich finde, man sollte
+            sich bei Krankheit lieber ausruhen, damit man schneller gesund wird.
+          </li>
+          <li>
+            <span class="label-strong">In meinem Land:</span> Viele Menschen arbeiten
+            trotzdem weiter, auch wenn sie krank sind, weil sie Angst haben, ihre
+            Arbeit zu verlieren.
+          </li>
         </ul>
       </article>
 
-      <article class="panel badge-purple">
-        <div class="panel-title">⚖️ Vor- und Nachteile</div>
+      <article class="panel proscons">
+        <div class="panel-header">
+          <span class="icon">⚖️</span>
+          <h2>Vor- und Nachteile</h2>
+        </div>
         <ul>
-          <li><span class="mini-label">Vorteile:</span> Man steckt die Kolleginnen und Kollegen nicht an und kann flexibel von zu Hause arbeiten.</li>
-          <li><span class="mini-label">Nachteile:</span> Der Heilungsprozess dauert länger und die Grenze zwischen Arbeit und Erholung verschwimmt.</li>
+          <li>
+            <span class="label-strong">Vorteile:</span> Man steckt die Kolleginnen und
+            Kollegen nicht an und kann flexibel von zu Hause arbeiten.
+          </li>
+          <li>
+            <span class="label-strong">Nachteile:</span> Der Heilungsprozess dauert
+            länger und die Grenze zwischen Arbeit und Erholung verschwimmt.
+          </li>
         </ul>
       </article>
     </section>
   </main>
 
   <script>
-    const tooltip = document.getElementById('tooltip');
-    const tooltipDe = tooltip.querySelector('.tooltip-de');
-    const tooltipTr = tooltip.querySelector('.tooltip-tr');
+    const overlay = document.getElementById("overlay");
+    const overlayDe = document.getElementById("overlay-de-text");
+    const overlayTr = document.getElementById("overlay-tr-text");
+    const closeBtn = overlay.querySelector(".overlay-close");
 
-    document.querySelectorAll('.hotspot').forEach(btn => {
-      btn.addEventListener('click', e => {
+    document.querySelectorAll(".hotspot").forEach((spot) => {
+      spot.addEventListener("click", (e) => {
         e.stopPropagation();
-        tooltipDe.textContent = btn.dataset.de;
-        tooltipTr.textContent = btn.dataset.tr;
-        tooltip.classList.remove('hidden');
+        overlayDe.textContent = spot.dataset.de;
+        overlayTr.textContent = spot.dataset.tr;
+        overlay.classList.add("visible");
       });
     });
 
-    document.addEventListener('click', e => {
-      if (!tooltip.classList.contains('hidden') &&
-          !tooltip.contains(e.target) &&
-          !e.target.classList.contains('hotspot')) {
-        tooltip.classList.add('hidden');
+    closeBtn.addEventListener("click", () => {
+      overlay.classList.remove("visible");
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!overlay.contains(e.target) && !e.target.classList.contains("hotspot")) {
+        overlay.classList.remove("visible");
       }
     });
   </script>
