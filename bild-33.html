@@ -1,241 +1,585 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Bild 33 – Lesen im Grünen | Ibrahim</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #f5f2ec;
+    :root {
+      --bg-body: #f5efe7;
+      --bg-card: #ffffff;
+      --accent-blue: #3f82ff;
+      --accent-green: #28c08a;
+      --accent-orange: #ff9d42;
+      --accent-purple: #b476ff;
+      --text-main: #18181b;
+      --text-muted: #6b7280;
+      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.18);
+      --radius-lg: 22px;
     }
-    .topbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 12px 24px;
-      background: #fff;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-      position: sticky;
-      top: 0;
-      z-index: 5;
-    }
-    .topbar-title {
-      font-weight: 600;
-      font-size: 18px;
-    }
-    .topbar-buttons button {
-      margin-left: 8px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: none;
-      cursor: pointer;
-      font-size: 13px;
-    }
-    .btn-primary { background: #5c7cff; color: #fff; }
-    .btn-ghost { background: #f3f3f8; }
-    .btn-green { background: #3bbf7a; color: #fff; }
-    .btn-orange { background: #ffb34d; color: #fff; }
 
-    .layout {
-      display: flex;
-      max-width: 1200px;
-      margin: 24px auto 40px;
-      padding: 0 16px;
-      gap: 18px;
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
-    .image-col {
-      flex: 1.1;
-      position: relative;
-      background: #111;
-      border-radius: 18px;
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: #f2ebe4;
+      color: var(--text-main);
+      min-height: 100vh;
+    }
+
+    /* ÜST BAŞLIK (ortada) */
+    .page-header-wrapper {
+      background: #fdf7f0;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.35);
+      padding: 14px 16px 10px;
+    }
+
+    .page-header {
+      max-width: 1320px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .page-header h1 {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+
+    .page-header p {
+      margin-top: 4px;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    /* ANA YERLEŞİM */
+    main.layout {
+      max-width: 1320px;
+      margin: 14px auto 32px;
+      padding: 0 18px 24px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+      gap: 22px;
+      align-items: flex-start;
+    }
+
+    /* SOL: RESİM KARTI */
+    .image-card {
+      border-radius: var(--radius-lg);
       overflow: hidden;
-      min-height: 420px;
+      box-shadow: var(--shadow-soft);
+      background: #020617;
+      position: relative;
     }
-    .image-col img {
+
+    .image-card-inner {
+      position: relative;
       width: 100%;
       height: 100%;
+    }
+
+    .image-card-inner img {
+      width: 100%;
+      height: 100%;
+      max-height: calc(100vh - 160px);
       object-fit: cover;
       display: block;
     }
 
+    /* HOTSPOTLAR */
     .hotspot {
       position: absolute;
-      width: 22px;
-      height: 22px;
+      width: 24px;
+      height: 24px;
       border-radius: 50%;
       border: 3px solid #fff;
-      background: #ff9a2f;
+      background: var(--accent-orange);
       cursor: pointer;
-      box-shadow: 0 0 0 4px rgba(255,154,47,0.4);
-      transition: transform 0.1s ease, box-shadow 0.1s ease;
-    }
-    .hotspot:hover {
-      transform: scale(1.1);
-      box-shadow: 0 0 0 6px rgba(255,154,47,0.7);
+      box-shadow: 0 0 0 4px rgba(255, 157, 66, 0.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.12s ease, box-shadow 0.12s ease,
+        background 0.12s ease;
     }
 
+    .hotspot::after {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #fff;
+    }
+
+    .hotspot:hover {
+      transform: scale(1.08) translateY(-1px);
+      box-shadow: 0 0 0 6px rgba(255, 157, 66, 0.8);
+      background: #ffb15f;
+    }
+
+    /* HOTSPOT BALONCUĞU */
     .tooltip-box {
       position: absolute;
-      left: 16px;
-      bottom: 16px;
-      max-width: 80%;
-      background: rgba(0,0,0,0.78);
-      color: #fff;
-      padding: 10px 12px;
-      border-radius: 12px;
+      max-width: 340px;
+      background: linear-gradient(
+        90deg,
+        rgba(251, 191, 36, 0.97),
+        rgba(249, 115, 22, 0.97)
+      );
+      color: #111827;
+      padding: 8px 10px;
+      border-radius: 10px;
       font-size: 13px;
-      line-height: 1.4;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-    }
-    .tooltip-box.hidden {
+      line-height: 1.35;
+      box-shadow: 0 16px 32px rgba(15, 23, 42, 0.55);
+      transform: translate(-50%, -100%);
+      z-index: 5;
       display: none;
     }
-    .tooltip-lang {
+
+    .tooltip-box::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -7px;
+      transform: translateX(-50%);
+      border-width: 7px 7px 0 7px;
+      border-style: solid;
+      border-color: rgba(249, 115, 22, 0.97) transparent transparent transparent;
+    }
+
+    .tooltip-label {
+      font-weight: 600;
       font-size: 11px;
       text-transform: uppercase;
-      letter-spacing: 0.04em;
-      opacity: 0.8;
+      letter-spacing: 0.05em;
     }
-    .tooltip-de { margin-bottom: 4px; }
 
-    .text-col {
-      flex: 1;
+    .tooltip-de {
+      margin-bottom: 4px;
+    }
+
+    .tooltip-de-text,
+    .tooltip-tr-text {
+      margin-top: 1px;
+    }
+
+    .tooltip-tr {
+      margin-top: 4px;
+      border-top: 1px solid rgba(249, 250, 251, 0.6);
+      padding-top: 4px;
+    }
+
+    /* SAĞ TARAF: BUTONLAR + PANELLER */
+    .right-column {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 8px;
     }
-    .panel {
-      background: #fff;
+
+    /* BUTON BAR */
+    .control-bar {
+      background: #ffffff;
       border-radius: 16px;
-      padding: 12px 14px;
-      box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+      padding: 10px 12px;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .control-left,
+    .control-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      border-radius: 999px;
+      border: none;
+      font-size: 13px;
+      padding: 6px 12px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    .btn-blue {
+      background: #4f46e5;
+      color: #ffffff;
+    }
+
+    .btn-blue-outline {
+      background: #ffffff;
+      color: #1f2937;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+    }
+
+    .btn-green {
+      background: #16a34a;
+      color: #ffffff;
+    }
+
+    .btn-orange {
+      background: #f97316;
+      color: #ffffff;
+    }
+
+    .btn-round {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+
+    .time-label {
       font-size: 14px;
     }
+
+    .time-label span {
+      font-weight: 700;
+      color: #b91c1c;
+      margin-left: 4px;
+    }
+
+    /* BAŞLIK: STRUKTURIERTE… */
+    .structure-title {
+      margin-top: 4px;
+      font-weight: 700;
+      font-size: 15px;
+    }
+
+    /* PANELLER */
+    .panel {
+      border-radius: 16px;
+      padding: 12px 14px;
+      font-size: 14px;
+      background: #e0f2fe;
+      box-shadow: 0 10px 22px rgba(15, 23, 42, 0.12);
+    }
+
+    .panel.person {
+      background: #e0f2fe;
+      border-left: 6px solid #3b82f6;
+    }
+
+    .panel.scene {
+      background: #dcfce7;
+      border-left: 6px solid #22c55e;
+    }
+
+    .panel.opinion {
+      background: #ffedd5;
+      border-left: 6px solid #fb923c;
+    }
+
+    .panel.proscons {
+      background: #f3e8ff;
+      border-left: 6px solid #a855f7;
+    }
+
     .panel-title {
       font-weight: 700;
       margin-bottom: 4px;
     }
-    .panel.badge-blue    { border-left: 6px solid #4d9fff; }
-    .panel.badge-green   { border-left: 6px solid #58c27d; }
-    .panel.badge-orange  { border-left: 6px solid #ff9a2f; }
-    .panel.badge-purple  { border-left: 6px solid #b46dff; }
-    .panel ul {
-      margin: 4px 0 0;
-      padding-left: 18px;
+
+    .panel-title span {
+      margin-right: 4px;
     }
-    .panel li { margin-bottom: 2px; }
-    .mini-label { font-weight: 600; }
+
+    .panel ul {
+      list-style: disc;
+      padding-left: 18px;
+      margin-top: 2px;
+    }
+
+    .panel li {
+      margin-bottom: 3px;
+    }
+
+    .label-strong {
+      font-weight: 600;
+    }
 
     @media (max-width: 900px) {
-      .layout { flex-direction: column; }
-      .image-col { min-height: 300px; }
-      .tooltip-box { max-width: calc(100% - 32px); }
+      main.layout {
+        grid-template-columns: minmax(0, 1fr);
+        padding: 0 12px 20px;
+      }
+      .image-card-inner img {
+        max-height: none;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .page-header h1 {
+        font-size: 20px;
+      }
+      .page-header p {
+        font-size: 13px;
+      }
+      .panel {
+        font-size: 13px;
+      }
     }
   </style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="topbar-title">Entspannung und Lesen im Grünen – Bild 33</div>
-    <div class="topbar-buttons">
-      <a href="index.html"><button class="btn-ghost">Startseite</button></a>
-      <button class="btn-primary">Timer Start (später)</button>
-      <button class="btn-green">B1 Text</button>
-      <button class="btn-orange">DE / TR</button>
-    </div>
-  </header>
+  <!-- ÜST BAŞLIK (ortada) -->
+  <div class="page-header-wrapper">
+    <header class="page-header">
+      <h1>Entspannung und Lesen im Grünen – Bild 33</h1>
+      <p>Bildbeschreibung-Training (B1) mit klickbaren Punkten und deutsch–türkischer Erklärung.</p>
+    </header>
+  </div>
 
   <main class="layout">
-    <section class="image-col">
-      <img src="bilder/bild33.jpg" alt="Frau liest ein Buch im Garten">
+    <!-- SOL: Resim + Hotspots -->
+    <section class="image-card">
+      <div class="image-card-inner">
+        <img
+          src="bilder/bild33.jpg"
+          alt="Frau liest ein Buch im Garten"
+        />
 
-      <button class="hotspot"
-              style="top: 22%; left: 30%;"
-              data-de="Eine junge Frau sitzt entspannt auf einer Holzbank."
-              data-tr="Genç bir kadın rahat bir şekilde tahta bir bankta oturuyor.">
-      </button>
+        <!-- Hotspot 1: Frau auf der Bank -->
+        <button
+          class="hotspot"
+          style="top: 22%; left: 30%;"
+          data-de="Eine junge Frau sitzt entspannt auf einer Holzbank."
+          data-tr="Genç bir kadın rahat bir şekilde tahta bir bankta oturuyor."
+        ></button>
 
-      <button class="hotspot"
-              style="top: 55%; left: 50%;"
-              data-de="Sie hält ein aufgeschlagenes Buch in der Hand und liest konzentriert."
-              data-tr="Elinde açık bir kitap tutuyor ve dikkatle okuyor.">
-      </button>
+        <!-- Hotspot 2: Buch in der Hand -->
+        <button
+          class="hotspot"
+          style="top: 55%; left: 50%;"
+          data-de="Sie hält ein aufgeschlagenes Buch in der Hand und liest konzentriert."
+          data-tr="Elinde açık bir kitap tutuyor ve dikkatle okuyor."
+        ></button>
 
-      <button class="hotspot"
-              style="top: 70%; left: 15%;"
-              data-de="Im Hintergrund sieht man viel Grün – Bäume, Gras und Büsche."
-              data-tr="Arka planda ağaçlar, çimen ve çalılar gibi çok fazla yeşillik görülüyor.">
-      </button>
+        <!-- Hotspot 3: Garten / Grün -->
+        <button
+          class="hotspot"
+          style="top: 70%; left: 15%;"
+          data-de="Im Hintergrund sieht man viel Grün – Bäume, Gras und Büsche."
+          data-tr="Arka planda ağaçlar, çimen ve çalılar gibi çok fazla yeşillik görülüyor."
+        ></button>
 
-      <div id="tooltip" class="tooltip-box hidden">
-        <div class="tooltip-lang">Deutsch</div>
-        <div class="tooltip-de"></div>
-        <div class="tooltip-lang" style="margin-top:6px;">Türkisch</div>
-        <div class="tooltip-tr"></div>
+        <!-- Baloncuk -->
+        <div id="tooltip" class="tooltip-box">
+          <div class="tooltip-de">
+            <div class="tooltip-label">Deutsch</div>
+            <div class="tooltip-de-text" id="tooltip-de-text">
+              Klicke auf einen Punkt im Bild.
+            </div>
+          </div>
+          <div class="tooltip-tr">
+            <div class="tooltip-label">Türkisch</div>
+            <div class="tooltip-tr-text" id="tooltip-tr-text">
+              Resimdeki noktalardan birine tıkla.
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="text-col">
-      <article class="panel badge-blue">
+    <!-- SAĞ: Butonlar + yapılandırılmış metin -->
+    <section class="right-column">
+      <!-- Buton bar (36 ile aynı) -->
+      <div class="control-bar">
+        <div class="control-left">
+          <button class="btn btn-blue">Umschalten</button>
+          <button class="btn btn-blue btn-round" title="Telegram">
+            ✈️
+          </button>
+          <button class="btn btn-blue-outline">Zurück</button>
+          <a href="index.html">
+            <button class="btn btn-blue-outline">Startseite</button>
+          </a>
+          <button class="btn btn-blue-outline">Weiter</button>
+        </div>
+        <div class="control-right">
+          <div class="time-label">
+            Zeit:
+            <span id="timer-display">0:00</span>
+          </div>
+          <button id="btn-start" class="btn btn-green">Start</button>
+          <button id="btn-reset" class="btn btn-orange">Zurücksetzen</button>
+        </div>
+      </div>
+
+      <div class="structure-title">Strukturierte Bildbeschreibung B1:</div>
+
+      <!-- Panel 1: Personenbeschreibung -->
+      <article class="panel person">
         <div class="panel-title">👤 Personenbeschreibung (B1)</div>
         <ul>
-          <li><span class="mini-label">Die Person:</span> Eine junge Frau mit langen Haaren, die alleine im Garten sitzt.</li>
-          <li><span class="mini-label">Die Aktion:</span> Sie liest ein Buch und wirkt ruhig und konzentriert.</li>
-          <li><span class="mini-label">Die Stimmung:</span> Die Atmosphäre ist entspannt, friedlich und sommerlich.</li>
+          <li>
+            <span class="label-strong">Die Person:</span>
+            Eine junge Frau mit langen Haaren, die alleine im Garten sitzt.
+          </li>
+          <li>
+            <span class="label-strong">Die Aktion:</span>
+            Sie liest ein Buch und wirkt ruhig und konzentriert.
+          </li>
+          <li>
+            <span class="label-strong">Die Stimmung:</span>
+            Die Atmosphäre ist entspannt, friedlich und sommerlich.
+          </li>
         </ul>
       </article>
 
-      <article class="panel badge-green">
+      <!-- Panel 2: Bildbeschreibung -->
+      <article class="panel scene">
         <div class="panel-title">🌿 Bildbeschreibung</div>
         <ul>
-          <li><span class="mini-label">Vordergrund:</span> Die Frau sitzt auf einem Holzstuhl, neben ihr steht ein kleiner Tisch.</li>
-          <li><span class="mini-label">Hintergrund:</span> Man sieht grüne Pflanzen, Bäume und eine gepflegte Wiese.</li>
-          <li><span class="mini-label">Szene:</span> Ein privater Garten an einem warmen Tag, der zum Entspannen einlädt.</li>
+          <li>
+            <span class="label-strong">Vordergrund:</span>
+            Die Frau sitzt auf einem Holzstuhl bzw. einer Bank, neben ihr steht ein kleiner Tisch.
+          </li>
+          <li>
+            <span class="label-strong">Hintergrund:</span>
+            Man sieht grüne Pflanzen, Bäume und eine gepflegte Wiese.
+          </li>
+          <li>
+            <span class="label-strong">Szene:</span>
+            Ein privater Garten an einem warmen Tag, der zum Entspannen einlädt.
+          </li>
         </ul>
       </article>
 
-      <article class="panel badge-orange">
+      <!-- Panel 3: Thema & Meinung -->
+      <article class="panel opinion">
         <div class="panel-title">💬 Thema & persönliche Meinung</div>
         <ul>
-          <li><span class="mini-label">Thema:</span> Freizeit, Entspannung und die Bedeutung von Natur für die Erholung.</li>
-          <li><span class="mini-label">Meine Meinung:</span> Ich finde es sehr angenehm, draußen im Grünen zu lesen, weil ich dort besser abschalten kann.</li>
-          <li><span class="mini-label">In meinem Land:</span> Viele Menschen gehen in den Park, um frische Luft zu genießen und zu lesen.</li>
+          <li>
+            <span class="label-strong">Thema:</span>
+            Freizeit, Entspannung und die Bedeutung von Natur für die Erholung.
+          </li>
+          <li>
+            <span class="label-strong">Meine Meinung:</span>
+            Ich finde es sehr angenehm, draußen im Grünen zu lesen, weil ich dort besser abschalten kann.
+          </li>
+          <li>
+            <span class="label-strong">In meinem Land:</span>
+            Viele Menschen gehen in den Park, um frische Luft zu genießen und zu lesen.
+          </li>
         </ul>
       </article>
 
-      <article class="panel badge-purple">
+      <!-- Panel 4: Vor- und Nachteile -->
+      <article class="panel proscons">
         <div class="panel-title">⚖️ Vor- und Nachteile</div>
         <ul>
-          <li><span class="mini-label">Vorteile:</span> Frische Luft, Ruhe, weniger Ablenkung, gute Atmosphäre zum Lesen.</li>
-          <li><span class="mini-label">Nachteile:</span> Insekten, Wetter kann sich ändern, manchmal ist es draußen zu laut.</li>
+          <li>
+            <span class="label-strong">Vorteile:</span>
+            Frische Luft, Ruhe, weniger Ablenkung, gute Atmosphäre zum Lesen.
+          </li>
+          <li>
+            <span class="label-strong">Nachteile:</span>
+            Insekten, Wetter kann sich ändern, manchmal ist es draußen zu laut.
+          </li>
         </ul>
       </article>
     </section>
   </main>
 
   <script>
-    const tooltip = document.getElementById('tooltip');
-    const tooltipDe = tooltip.querySelector('.tooltip-de');
-    const tooltipTr = tooltip.querySelector('.tooltip-tr');
+    // === Hotspot baloncuk mantığı ===
+    const tooltip = document.getElementById("tooltip");
+    const tooltipDe = document.getElementById("tooltip-de-text");
+    const tooltipTr = document.getElementById("tooltip-tr-text");
+    const imgWrapper = document.querySelector(".image-card-inner");
 
-    document.querySelectorAll('.hotspot').forEach(btn => {
-      btn.addEventListener('click', e => {
+    function showTooltipForHotspot(spot) {
+      const rectWrapper = imgWrapper.getBoundingClientRect();
+      const rectSpot = spot.getBoundingClientRect();
+
+      const centerX = rectSpot.left - rectWrapper.left + rectSpot.width / 2;
+      const topY = rectSpot.top - rectWrapper.top;
+
+      tooltip.style.left = centerX + "px";
+      tooltip.style.top = topY - 12 + "px";
+
+      tooltipDe.textContent = spot.dataset.de;
+      tooltipTr.textContent = spot.dataset.tr;
+
+      tooltip.style.display = "block";
+    }
+
+    document.querySelectorAll(".hotspot").forEach((spot) => {
+      spot.addEventListener("click", (e) => {
         e.stopPropagation();
-        tooltipDe.textContent = btn.dataset.de;
-        tooltipTr.textContent = btn.dataset.tr;
-        tooltip.classList.remove('hidden');
+        showTooltipForHotspot(spot);
       });
     });
 
-    document.addEventListener('click', e => {
-      if (!tooltip.classList.contains('hidden') &&
-          !tooltip.contains(e.target) &&
-          !e.target.classList.contains('hotspot')) {
-        tooltip.classList.add('hidden');
+    imgWrapper.addEventListener("click", (e) => {
+      if (!e.target.classList.contains("hotspot")) {
+        tooltip.style.display = "none";
       }
     });
+
+    document.addEventListener("click", (e) => {
+      if (!imgWrapper.contains(e.target)) {
+        tooltip.style.display = "none";
+      }
+    });
+
+    // === Basit TIMER (Start / Reset) ===
+    const timerDisplay = document.getElementById("timer-display");
+    const btnStart = document.getElementById("btn-start");
+    const btnReset = document.getElementById("btn-reset");
+
+    let timer = null;
+    let seconds = 0;
+    let running = false;
+
+    function renderTime() {
+      const m = Math.floor(seconds / 60);
+      const s = seconds % 60;
+      timerDisplay.textContent = m + ":" + (s < 10 ? "0" + s : s);
+    }
+
+    btnStart.addEventListener("click", () => {
+      if (!running) {
+        running = true;
+        btnStart.textContent = "Pause";
+        timer = setInterval(() => {
+          seconds += 1;
+          renderTime();
+        }, 1000);
+      } else {
+        running = false;
+        btnStart.textContent = "Start";
+        clearInterval(timer);
+      }
+    });
+
+    btnReset.addEventListener("click", () => {
+      running = false;
+      clearInterval(timer);
+      seconds = 0;
+      renderTime();
+      btnStart.textContent = "Start";
+    });
+
+    renderTime();
   </script>
 </body>
 </html>
