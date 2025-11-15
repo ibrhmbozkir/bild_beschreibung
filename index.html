@@ -1,133 +1,515 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <title>Bildbeschreibung Training – Ibrahim</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    * { box-sizing: border-box; }
+    <!-- Yandex Metrica -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){
+            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {
+                if (document.scripts[j].src === r) { return; }
+            }
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a);
+        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=104304423', 'ym');
 
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top left, #7b8cff, #6a4cff);
-      color: #fff;
-    }
-    .page {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 32px 16px 64px;
-    }
-    .title {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 4px;
-    }
-    .title-icon {
-      font-size: 32px;
-    }
-    h1 {
-      margin: 0;
-      font-size: 32px;
-    }
-    .subtitle {
-      margin-top: 4px;
-      opacity: 0.9;
-      max-width: 600px;
-    }
-    .grid {
-      margin-top: 32px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-    }
-    .card {
-      background: #fff;
-      border-radius: 18px;
-      overflow: hidden;
-      color: #111;
-      box-shadow: 0 16px 30px rgba(0,0,0,0.18);
-      cursor: pointer;
-      text-decoration: none;
-      display: flex;
-      flex-direction: column;
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
-    }
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 22px 40px rgba(0,0,0,0.28);
-    }
-    .card img {
-      width: 100%;
-      height: 160px;
-      object-fit: cover;
-      display: block;
-    }
-    .card-body {
-      padding: 12px 14px 14px;
-    }
-    .card-title-row {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 2px;
-    }
-    .card-title {
-      font-weight: 700;
-    }
-    .badge-new {
-      background: #ff4d6a;
-      color: #fff;
-      font-size: 11px;
-      padding: 2px 7px;
-      border-radius: 999px;
-      text-transform: uppercase;
-      letter-spacing: 0.03em;
-    }
-    .card-sub {
-      font-size: 13px;
-      color: #666;
-    }
+        ym(104304423, 'init', {
+            ssr:true,
+            webvisor:true,
+            clickmap:true,
+            ecommerce:"dataLayer",
+            accurateTrackBounce:true,
+            trackLinks:true
+        });
+    </script>
+    <noscript>
+        <div>
+            <img src="https://mc.yandex.ru/watch/104304423" style="position:absolute; left:-9999px;" alt="" />
+        </div>
+    </noscript>
 
-    @media (max-width: 600px) {
-      h1 { font-size: 26px; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bildbeschreibung Training - Deutsch Lernen</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 16px 40px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 28px;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 2.4rem;
+            margin-bottom: 12px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .header h1 img {
+            width: 28px;
+            height: 28px;
+            vertical-align: middle;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .stats {
+            text-align: center;
+            color: white;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .sort-info {
+            text-align: center;
+            color: white;
+            margin-bottom: 24px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+            margin-bottom: 32px;
+        }
+
+        .image-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: all 0.25s ease;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .image-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.3);
+        }
+
+        .image-preview {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+            display: block;
+            background: #e5e7eb;
+        }
+
+        .image-info {
+            padding: 12px 14px 14px;
+            text-align: center;
+        }
+
+        .image-number {
+            font-weight: 700;
+            color: #4f46e5;
+            font-size: 1.05rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            justify-content: center;
+        }
+
+        .new-badge {
+            background: #ef4444;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 999px;
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .image-subtitle {
+            font-size: 0.9rem;
+            color: #6b7280;
+            margin-top: 6px;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 18px;
+            margin-top: 24px;
+            flex-wrap: wrap;
+        }
+
+        .pagination button {
+            background: white;
+            border: none;
+            padding: 10px 22px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.98rem;
+            font-weight: 600;
+            color: #4f46e5;
+            transition: all 0.25s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .pagination button:hover:not(:disabled) {
+            background: #4f46e5;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .pagination button:disabled {
+            opacity: 0.45;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+
+        .page-info {
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .page-info span {
+            font-weight: 700;
+        }
+
+        .no-images {
+            text-align: center;
+            color: white;
+            font-size: 1.1rem;
+            padding: 32px 18px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 16px;
+            margin: 20px 0 32px;
+        }
+
+        /* Tablet ve üzeri */
+        @media (min-width: 768px) {
+            .gallery {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+            .header h1 {
+                font-size: 2.7rem;
+            }
+        }
+
+        /* Daha geniş ekran */
+        @media (min-width: 1024px) {
+            .gallery {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+            }
+        }
+
+        /* Çok küçük ekranlar */
+        @media (max-width: 480px) {
+            .gallery {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+            .header h1 {
+                font-size: 2rem;
+            }
+            .header p {
+                font-size: 0.98rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="page">
-    <div class="title">
-      <span class="title-icon">🎯</span>
-      <h1>Bildbeschreibung Training – Ibrahim</h1>
-    </div>
-    <p class="subtitle">
-      Lerne Bildbeschreibung auf Deutsch – einfach, schnell und stressfrei, mit deutschen und türkischen Erklärungen.
-    </p>
+    <div class="container">
+        <!-- ÜST BAŞLIK -->
+        <header class="header">
+            <h1>
+                🎯 Bildbeschreibung Training
+                <a target="_blank" href="https://t.me/dtz_bildbeschreibung">
+                    <img src="/ico_teleg.svg" alt="Telegram Gruppe">
+                </a>
+            </h1>
+            <p>Lerne Bildbeschreibung auf Deutsch – einfach, strukturiert und stressfrei.</p>
+        </header>
 
-    <div class="grid">
-      <a class="card" href="bild-33.html">
-        <img src="bilder/bild33.jpg" alt="Frau liest im Garten">
-        <div class="card-body">
-          <div class="card-title-row">
-            <span class="card-title">Bild 33</span>
-            <span class="badge-new">NEU</span>
-          </div>
-          <div class="card-sub">Klicken zum Üben</div>
+        <!-- İSTATİSTİK / BİLGİ -->
+        <div class="stats">
+            Insgesamt <span id="total-images">36</span> Bilder · Ideal für DTZ / B1 / B2 Prüfungsvorbereitung
         </div>
-      </a>
+        <div class="sort-info">
+            Die neuesten Bilder erscheinen oben. Klicke auf ein Bild, um detailliert zu üben (Hotspots + B1-Text + Timer).
+        </div>
 
-      <a class="card" href="bild-36.html">
-        <img src="bilder/bild36.jpg" alt="Mann arbeitet im Home-Office">
-        <div class="card-body">
-          <div class="card-title-row">
-            <span class="card-title">Bild 36</span>
-            <span class="badge-new">NEU</span>
-          </div>
-          <div class="card-sub">Klicken zum Üben</div>
+        <!-- GALERİ -->
+        <section class="gallery" id="gallery">
+            <!-- Burayı istersen backend ile dinamik üretebilirsin.
+                 Şimdilik senin örneğine göre son 12 resmi gösteriyorum. -->
+
+            <div class="image-card" onclick="openImage(36)">
+                <img
+                    src="bild/36/1.jpg"
+                    alt="Bild 36"
+                    class="image-preview"
+                >
+                <div class="image-info">
+                    <div class="image-number">
+                        Bild 36
+                        <span class="new-badge">NEU</span>
+                    </div>
+                    <div class="image-subtitle">Klicken zum Üben</div>
+                </div>
+            </div>
+
+            <div class="image-card" onclick="openImage(35)">
+                <img
+                    src="bild/35/1.jpg"
+                    alt="Bild 35"
+                    class="image-preview"
+                >
+                <div class="image-info">
+                    <div class="image-number">
+                        Bild 35
+                        <span class="new-badge">NEU</span>
+                    </div>
+                    <div class="image-subtitle">Klicken zum Üben</div>
+                </div>
+            </div>
+
+            <div class="image-card" onclick="openImage(34)">
+                <img
+                    src="bild/34/1.jpg"
+                    alt="Bild 34"
+                    class="image-preview"
+                >
+                <div class="image-info">
+                    <div class="image-number">
+                        Bild 34
+                        <span class="new-badge">NEU</span>
+                    </div>
+                    <div class="image-subtitle">Klicken zum Üben</div>
+                </div>
+            </div>
+
+            <div class="image-card" onclick="openImage(33)">
+                <img
+                    src="bild/33/1.jpg"
+                    alt="Bild 33"
+                    class="image-preview"
+                >
+                <div class="image-info">
+                    <div class="image-number">
+                        Bild 33
+                        <span class="new-badge">NEU</span>
+                    </div>
+                    <div class="image-subtitle">Klicken zum Üben</div>
+                </div>
+            </div>
+
+            <div class="image-card" onclick="openImage(32)">
+                <img
+                    src="bild/32/1.jpg"
+                    alt="Bild 32"
+                    class="image-preview"
+                >
+                <div class="image-info">
+                    <div class="image-number">
+                        Bild 32
+                        <span class="new-badge">NEU</span>
+                    </div>
+                    <div class="image-subtitle">Klicken zum Üben</div>
+                </div>
+            </div>
+
+            <div class="image-card" onclick="openImage(31)">
+                <img
+                    src="bild/31/1.jpg"
+                    alt="Bild 31"
+                    class="image-preview"
+                >
+                <div class="image-info">
+                    <div class="image-number">
+                        Bild 31
+                        <span class="new-badge">NEU</span>
+                    </div>
+                    <div class="image-subtitle">Klicken zum Üben</div>
+                </div>
+            </div>
+
+            <div class="image-card" onclick="openImage(30)">
+                <img
+                    src="bild/30/1.jpg"
+                    alt="Bild 30"
+                    class="image-preview"
+                >
+                <div class="image-info">
+                    <div class="image-number">Bild 30</div>
+                    <div class="image-subtitle">Klicken zum Üben</div>
+                </div>
+            </div>
+
+            <div class="image-card" onclick="openImage(29)">
+                <img
+                    src="bild/29/1.jpg"
+                    alt="Bild 29"
+                    class="image-preview"
+                >
+                <div class="image-info">
+                    <div class="image-number">Bild 29</div>
+                    <div class="image-subtitle">Klicken zum Üben</div>
+                </div>
+            </div>
+
+            <div class="image-card" onclick="openImage(28)">
+                <img
+                    src="bild/28/1.jpg"
+                    alt="Bild 28"
+                    class="image-preview"
+                >
+                <div class="image-info">
+                    <div class="image-number">Bild 28</div>
+                    <div class="image-subtitle">Klicken zum Üben</div>
+                </div>
+            </div>
+
+            <div class="image-card" onclick="openImage(27)">
+                <img
+                    src="bild/27/1.jpg"
+                    alt="Bild 27"
+                    class="image-preview"
+                >
+                <div class="image-info">
+                    <div class="image-number">Bild 27</div>
+                    <div class="image-subtitle">Klicken zum Üben</div>
+                </div>
+            </div>
+
+            <div class="image-card" onclick="openImage(26)">
+                <img
+                    src="bild/26/1.jpg"
+                    alt="Bild 26"
+                    class="image-preview"
+                >
+                <div class="image-info">
+                    <div class="image-number">Bild 26</div>
+                    <div class="image-subtitle">Klicken zum Üben</div>
+                </div>
+            </div>
+
+            <div class="image-card" onclick="openImage(25)">
+                <img
+                    src="bild/25/1.jpg"
+                    alt="Bild 25"
+                    class="image-preview"
+                >
+                <div class="image-info">
+                    <div class="image-number">Bild 25</div>
+                    <div class="image-subtitle">Klicken zum Üben</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SAYFA GEÇİŞİ -->
+        <div class="pagination">
+            <button id="btn-prev" onclick="changePage(CURRENT_PAGE - 1)">
+                ← Zurück
+            </button>
+
+            <div class="page-info">
+                Seite <span id="page-current">1</span> von <span id="page-total">3</span>
+                <span style="opacity:0.85; font-weight:400;">
+                    (Bilder <span id="page-range">25–36</span>)
+                </span>
+            </div>
+
+            <button id="btn-next" onclick="changePage(CURRENT_PAGE + 1)">
+                Weiter →
+            </button>
         </div>
-      </a>
     </div>
-  </div>
+
+    <script>
+        // Basit sayfa bilgisi (statik). Backend kullanıyorsan bunları PHP ile değiştirirsin.
+        const CURRENT_PAGE = 1;
+        const TOTAL_PAGES = 3;
+        const PAGE_RANGES = {
+            1: '25–36',
+            2: '13–24',
+            3: '1–12'
+        };
+
+        document.getElementById('page-current').textContent = CURRENT_PAGE;
+        document.getElementById('page-total').textContent = TOTAL_PAGES;
+        if (PAGE_RANGES[CURRENT_PAGE]) {
+            document.getElementById('page-range').textContent = PAGE_RANGES[CURRENT_PAGE];
+        }
+
+        // Buton durumları
+        const btnPrev = document.getElementById('btn-prev');
+        const btnNext = document.getElementById('btn-next');
+
+        if (CURRENT_PAGE <= 1) {
+            btnPrev.disabled = true;
+        }
+        if (CURRENT_PAGE >= TOTAL_PAGES) {
+            btnNext.disabled = true;
+        }
+
+        function openImage(imageNumber) {
+            window.location.href = 'bild/' + imageNumber + '/';
+        }
+
+        function changePage(page) {
+            if (page >= 1 && page <= TOTAL_PAGES) {
+                window.location.href = '?page=' + page;
+            }
+        }
+
+        // Klavye ile sayfa değiştirme
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowLeft' && CURRENT_PAGE > 1) {
+                changePage(CURRENT_PAGE - 1);
+            } else if (event.key === 'ArrowRight' && CURRENT_PAGE < TOTAL_PAGES) {
+                changePage(CURRENT_PAGE + 1);
+            }
+        });
+
+        // Görsel yüklenmezse kartı gizle
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('.image-preview');
+            images.forEach(img => {
+                img.onerror = function() {
+                    const card = this.closest('.image-card');
+                    if (card) {
+                        card.style.display = 'none';
+                    }
+                };
+            });
+        });
+    </script>
 </body>
 </html>
