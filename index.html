@@ -265,177 +265,14 @@
             Die neuesten Bilder erscheinen oben. Klicke auf ein Bild, um detailliert zu üben (Hotspots + B1-Text + Timer).
         </div>
 
-        <!-- GALERİ -->
+        <!-- GALERİ (ARTIK DİNAMİK) -->
         <section class="gallery" id="gallery">
-            <!-- Burayı istersen backend ile dinamik üretebilirsin.
-                 Şimdilik senin örneğine göre son 12 resmi gösteriyorum. -->
-
-            <div class="image-card" onclick="openImage(36)">
-                <img
-                    src="bild/36/1.jpg"
-                    alt="Bild 36"
-                    class="image-preview"
-                >
-                <div class="image-info">
-                    <div class="image-number">
-                        Bild 36
-                        <span class="new-badge">NEU</span>
-                    </div>
-                    <div class="image-subtitle">Klicken zum Üben</div>
-                </div>
-            </div>
-
-            <div class="image-card" onclick="openImage(35)">
-                <img
-                    src="bild/35/1.jpg"
-                    alt="Bild 35"
-                    class="image-preview"
-                >
-                <div class="image-info">
-                    <div class="image-number">
-                        Bild 35
-                        <span class="new-badge">NEU</span>
-                    </div>
-                    <div class="image-subtitle">Klicken zum Üben</div>
-                </div>
-            </div>
-
-            <div class="image-card" onclick="openImage(34)">
-                <img
-                    src="bild/34/1.jpg"
-                    alt="Bild 34"
-                    class="image-preview"
-                >
-                <div class="image-info">
-                    <div class="image-number">
-                        Bild 34
-                        <span class="new-badge">NEU</span>
-                    </div>
-                    <div class="image-subtitle">Klicken zum Üben</div>
-                </div>
-            </div>
-
-            <div class="image-card" onclick="openImage(33)">
-                <img
-                    src="bild/33/1.jpg"
-                    alt="Bild 33"
-                    class="image-preview"
-                >
-                <div class="image-info">
-                    <div class="image-number">
-                        Bild 33
-                        <span class="new-badge">NEU</span>
-                    </div>
-                    <div class="image-subtitle">Klicken zum Üben</div>
-                </div>
-            </div>
-
-            <div class="image-card" onclick="openImage(32)">
-                <img
-                    src="bild/32/1.jpg"
-                    alt="Bild 32"
-                    class="image-preview"
-                >
-                <div class="image-info">
-                    <div class="image-number">
-                        Bild 32
-                        <span class="new-badge">NEU</span>
-                    </div>
-                    <div class="image-subtitle">Klicken zum Üben</div>
-                </div>
-            </div>
-
-            <div class="image-card" onclick="openImage(31)">
-                <img
-                    src="bild/31/1.jpg"
-                    alt="Bild 31"
-                    class="image-preview"
-                >
-                <div class="image-info">
-                    <div class="image-number">
-                        Bild 31
-                        <span class="new-badge">NEU</span>
-                    </div>
-                    <div class="image-subtitle">Klicken zum Üben</div>
-                </div>
-            </div>
-
-            <div class="image-card" onclick="openImage(30)">
-                <img
-                    src="bild/30/1.jpg"
-                    alt="Bild 30"
-                    class="image-preview"
-                >
-                <div class="image-info">
-                    <div class="image-number">Bild 30</div>
-                    <div class="image-subtitle">Klicken zum Üben</div>
-                </div>
-            </div>
-
-            <div class="image-card" onclick="openImage(29)">
-                <img
-                    src="bild/29/1.jpg"
-                    alt="Bild 29"
-                    class="image-preview"
-                >
-                <div class="image-info">
-                    <div class="image-number">Bild 29</div>
-                    <div class="image-subtitle">Klicken zum Üben</div>
-                </div>
-            </div>
-
-            <div class="image-card" onclick="openImage(28)">
-                <img
-                    src="bild/28/1.jpg"
-                    alt="Bild 28"
-                    class="image-preview"
-                >
-                <div class="image-info">
-                    <div class="image-number">Bild 28</div>
-                    <div class="image-subtitle">Klicken zum Üben</div>
-                </div>
-            </div>
-
-            <div class="image-card" onclick="openImage(27)">
-                <img
-                    src="bild/27/1.jpg"
-                    alt="Bild 27"
-                    class="image-preview"
-                >
-                <div class="image-info">
-                    <div class="image-number">Bild 27</div>
-                    <div class="image-subtitle">Klicken zum Üben</div>
-                </div>
-            </div>
-
-            <div class="image-card" onclick="openImage(26)">
-                <img
-                    src="bild/26/1.jpg"
-                    alt="Bild 26"
-                    class="image-preview"
-                >
-                <div class="image-info">
-                    <div class="image-number">Bild 26</div>
-                    <div class="image-subtitle">Klicken zum Üben</div>
-                </div>
-            </div>
-
-            <div class="image-card" onclick="openImage(25)">
-                <img
-                    src="bild/25/1.jpg"
-                    alt="Bild 25"
-                    class="image-preview"
-                >
-                <div class="image-info">
-                    <div class="image-number">Bild 25</div>
-                    <div class="image-subtitle">Klicken zum Üben</div>
-                </div>
-            </div>
+            <!-- Kartlar JavaScript ile dinamik üretilecek -->
         </section>
 
         <!-- SAYFA GEÇİŞİ -->
         <div class="pagination">
-            <button id="btn-prev" onclick="changePage(CURRENT_PAGE - 1)">
+            <button id="btn-prev">
                 ← Zurück
             </button>
 
@@ -446,38 +283,38 @@
                 </span>
             </div>
 
-            <button id="btn-next" onclick="changePage(CURRENT_PAGE + 1)">
+            <button id="btn-next">
                 Weiter →
             </button>
         </div>
     </div>
 
     <script>
-        // Basit sayfa bilgisi (statik). Backend kullanıyorsan bunları PHP ile değiştirirsin.
-        const CURRENT_PAGE = 1;
-        const TOTAL_PAGES = 3;
-        const PAGE_RANGES = {
-            1: '25–36',
-            2: '13–24',
-            3: '1–12'
-        };
+        // Genel ayarlar
+        const TOTAL_IMAGES = 36;          // Toplam bild sayısı
+        const IMAGES_PER_PAGE = 12;       // Sayfa başına resim
+        const NEW_BADGE_COUNT = 6;        // Son kaç resme "NEU" gelsin
 
-        document.getElementById('page-current').textContent = CURRENT_PAGE;
-        document.getElementById('page-total').textContent = TOTAL_PAGES;
-        if (PAGE_RANGES[CURRENT_PAGE]) {
-            document.getElementById('page-range').textContent = PAGE_RANGES[CURRENT_PAGE];
-        }
+        // URL'den ?page= parametresini oku
+        const params = new URLSearchParams(window.location.search);
+        let CURRENT_PAGE = parseInt(params.get('page') || '1', 10);
 
-        // Buton durumları
+        const TOTAL_PAGES = Math.ceil(TOTAL_IMAGES / IMAGES_PER_PAGE);
+
+        // Güvenlik: page sınırlarını kontrol et
+        if (CURRENT_PAGE < 1) CURRENT_PAGE = 1;
+        if (CURRENT_PAGE > TOTAL_PAGES) CURRENT_PAGE = TOTAL_PAGES;
+
+        // DOM elementleri
+        const galleryEl = document.getElementById('gallery');
+        const pageCurrentEl = document.getElementById('page-current');
+        const pageTotalEl = document.getElementById('page-total');
+        const pageRangeEl = document.getElementById('page-range');
         const btnPrev = document.getElementById('btn-prev');
         const btnNext = document.getElementById('btn-next');
 
-        if (CURRENT_PAGE <= 1) {
-            btnPrev.disabled = true;
-        }
-        if (CURRENT_PAGE >= TOTAL_PAGES) {
-            btnNext.disabled = true;
-        }
+        // Toplam resim sayısını göster
+        document.getElementById('total-images').textContent = TOTAL_IMAGES;
 
         function openImage(imageNumber) {
             window.location.href = 'bild/' + imageNumber + '/';
@@ -485,9 +322,89 @@
 
         function changePage(page) {
             if (page >= 1 && page <= TOTAL_PAGES) {
-                window.location.href = '?page=' + page;
+                // URL'de page parametresini değiştir
+                const url = new URL(window.location.href);
+                url.searchParams.set('page', page);
+                window.location.href = url.toString();
             }
         }
+
+        function renderPaginationInfo() {
+            pageCurrentEl.textContent = CURRENT_PAGE;
+            pageTotalEl.textContent = TOTAL_PAGES;
+
+            // Örn: 25–36
+            const startNumber = TOTAL_IMAGES - (CURRENT_PAGE - 1) * IMAGES_PER_PAGE;
+            const endNumber = Math.max(startNumber - IMAGES_PER_PAGE + 1, 1);
+            pageRangeEl.textContent = endNumber + '–' + startNumber;
+
+            // Butonları aktif/pasif yap
+            btnPrev.disabled = (CURRENT_PAGE <= 1);
+            btnNext.disabled = (CURRENT_PAGE >= TOTAL_PAGES);
+        }
+
+        function renderGallery() {
+            // Önce temizle
+            galleryEl.innerHTML = '';
+
+            const startNumber = TOTAL_IMAGES - (CURRENT_PAGE - 1) * IMAGES_PER_PAGE;
+            const endNumber = Math.max(startNumber - IMAGES_PER_PAGE + 1, 1);
+
+            // Büyük numaradan küçüğe doğru yaz (36, 35, 34, ...)
+            for (let num = startNumber; num >= endNumber; num--) {
+                const isNew = num > (TOTAL_IMAGES - NEW_BADGE_COUNT);
+
+                const card = document.createElement('div');
+                card.className = 'image-card';
+                card.onclick = () => openImage(num);
+
+                const img = document.createElement('img');
+                img.className = 'image-preview';
+                img.src = 'bild/' + num + '/1.jpg';
+                img.alt = 'Bild ' + num;
+
+                const info = document.createElement('div');
+                info.className = 'image-info';
+
+                const numberDiv = document.createElement('div');
+                numberDiv.className = 'image-number';
+                numberDiv.textContent = 'Bild ' + num;
+
+                if (isNew) {
+                    const badge = document.createElement('span');
+                    badge.className = 'new-badge';
+                    badge.textContent = 'NEU';
+                    numberDiv.appendChild(badge);
+                }
+
+                const subtitle = document.createElement('div');
+                subtitle.className = 'image-subtitle';
+                subtitle.textContent = 'Klicken zum Üben';
+
+                info.appendChild(numberDiv);
+                info.appendChild(subtitle);
+
+                card.appendChild(img);
+                card.appendChild(info);
+
+                galleryEl.appendChild(card);
+            }
+
+            // Görsel yüklenmezse kartı gizle
+            const images = document.querySelectorAll('.image-preview');
+            images.forEach(img => {
+                img.onerror = function() {
+                    const card = this.closest('.image-card');
+                    if (card) {
+                        card.style.display = 'none';
+                    }
+                };
+            });
+        }
+
+        // Buton click eventleri
+        btnPrev.addEventListener('click', () => changePage(CURRENT_PAGE - 1));
+        btnNext.addEventListener('click', () => changePage(CURRENT_PAGE + 1));
 
         // Klavye ile sayfa değiştirme
         document.addEventListener('keydown', function(event) {
@@ -498,17 +415,10 @@
             }
         });
 
-        // Görsel yüklenmezse kartı gizle
+        // Sayfa yüklenince her şeyi çiz
         document.addEventListener('DOMContentLoaded', function() {
-            const images = document.querySelectorAll('.image-preview');
-            images.forEach(img => {
-                img.onerror = function() {
-                    const card = this.closest('.image-card');
-                    if (card) {
-                        card.style.display = 'none';
-                    }
-                };
-            });
+            renderPaginationInfo();
+            renderGallery();
         });
     </script>
 </body>
