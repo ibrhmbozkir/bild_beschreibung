@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     :root {
-      --bg-body: #f4efe8;
+      --bg-body: #f5efe7;
       --bg-card: #ffffff;
       --accent-blue: #3f82ff;
       --accent-green: #28c08a;
@@ -27,22 +27,25 @@
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
         sans-serif;
-      background: radial-gradient(circle at top left, #e5d5ff, #f4efe8 50%, #fdf6e3);
+      background: #f2ebe4;
       color: var(--text-main);
       min-height: 100vh;
     }
 
     header.page-header {
-      padding: 18px 18px 0;
+      padding: 16px 18px 8px;
+      background: #fdf7f0;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.35);
     }
 
     .page-header-inner {
-      max-width: 1200px;
+      max-width: 1320px;
       margin: 0 auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 16px;
+      flex-wrap: wrap;
     }
 
     .page-title-block h1 {
@@ -77,14 +80,9 @@
     }
 
     .btn-ghost {
-      background: rgba(255, 255, 255, 0.85);
+      background: #ffffff;
       border: 1px solid rgba(148, 163, 184, 0.4);
       color: var(--text-main);
-    }
-
-    .btn-primary {
-      background: var(--accent-blue);
-      color: #fff;
     }
 
     .btn-outline {
@@ -97,7 +95,7 @@
       font-size: 13px;
       padding: 4px 10px;
       border-radius: 999px;
-      background: rgba(15, 23, 42, 0.08);
+      background: rgba(15, 23, 42, 0.06);
       display: inline-flex;
       align-items: center;
       gap: 6px;
@@ -108,28 +106,26 @@
       height: 7px;
       border-radius: 999px;
       background: #ef4444;
-      box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.3);
+      box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.25);
     }
 
     main.layout {
-      max-width: 1200px;
-      margin: 18px auto 40px;
+      max-width: 1320px;
+      margin: 12px auto 32px;
       padding: 0 18px 24px;
       display: grid;
       grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
-      gap: 20px;
+      gap: 22px;
+      align-items: flex-start;
     }
 
+    /* Sol taraf: resim tam kaplasın */
     .image-card {
-      background: #020617;
       border-radius: var(--radius-lg);
       overflow: hidden;
       box-shadow: var(--shadow-soft);
+      background: #020617;
       position: relative;
-      min-height: 420px;
-      display: flex;
-      align-items: stretch;
-      justify-content: stretch;
     }
 
     .image-card-inner {
@@ -141,19 +137,21 @@
     .image-card-inner img {
       width: 100%;
       height: 100%;
+      max-height: calc(100vh - 140px);
       object-fit: cover;
       display: block;
     }
 
+    /* Hotspotlar */
     .hotspot {
       position: absolute;
-      width: 22px;
-      height: 22px;
+      width: 24px;
+      height: 24px;
       border-radius: 50%;
       border: 3px solid #fff;
       background: var(--accent-orange);
       cursor: pointer;
-      box-shadow: 0 0 0 4px rgba(255, 157, 66, 0.52);
+      box-shadow: 0 0 0 4px rgba(255, 157, 66, 0.55);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -163,173 +161,114 @@
 
     .hotspot::after {
       content: "";
-      width: 7px;
-      height: 7px;
+      width: 8px;
+      height: 8px;
       border-radius: 50%;
       background: #fff;
     }
 
     .hotspot:hover {
-      transform: scale(1.1) translateY(-1px);
-      box-shadow: 0 0 0 6px rgba(255, 157, 66, 0.75);
+      transform: scale(1.08) translateY(-1px);
+      box-shadow: 0 0 0 6px rgba(255, 157, 66, 0.8);
       background: #ffb15f;
     }
 
-    .hotspot-label {
+    /* Tooltip balonu (DE + TR, noktaya yakın) */
+    .tooltip-box {
       position: absolute;
-      padding: 4px 8px;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.84);
-      color: #f9fafb;
-      font-size: 11px;
-      white-space: nowrap;
-      transform: translate(-50%, calc(-100% - 8px));
-      pointer-events: none;
-      opacity: 0;
-      transition: opacity 0.12s ease;
-    }
-
-    .hotspot:hover .hotspot-label {
-      opacity: 1;
-    }
-
-    .overlay-panel {
-      position: absolute;
-      left: 12px;
-      right: 12px;
-      bottom: 12px;
-      border-radius: 16px;
+      max-width: 320px;
+      background: #fbbf24;
       background: linear-gradient(
-        to top,
-        rgba(15, 23, 42, 0.9),
-        rgba(15, 23, 42, 0.7)
+        90deg,
+        rgba(251, 191, 36, 0.97),
+        rgba(249, 115, 22, 0.97)
       );
-      color: #e5e7eb;
-      padding: 10px 12px;
+      color: #111827;
+      padding: 8px 10px;
+      border-radius: 10px;
       font-size: 13px;
-      line-height: 1.4;
-      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.65);
+      line-height: 1.35;
+      box-shadow: 0 16px 32px rgba(15, 23, 42, 0.55);
+      transform: translate(-50%, -100%);
+      z-index: 5;
       display: none;
     }
 
-    .overlay-panel.visible {
-      display: block;
+    .tooltip-box::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -7px;
+      transform: translateX(-50%);
+      border-width: 7px 7px 0 7px;
+      border-style: solid;
+      border-color: rgba(249, 115, 22, 0.97) transparent transparent transparent;
     }
 
-    .overlay-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 6px;
-      gap: 8px;
-    }
-
-    .overlay-tags {
-      display: flex;
-      gap: 6px;
+    .tooltip-label {
+      font-weight: 600;
       font-size: 11px;
-    }
-
-    .tag {
-      padding: 2px 8px;
-      border-radius: 999px;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      background: rgba(148, 163, 184, 0.35);
     }
 
-    .overlay-close {
-      border: none;
-      background: transparent;
-      color: #e5e7eb;
-      cursor: pointer;
-      font-size: 18px;
-      line-height: 1;
-      opacity: 0.8;
-    }
-
-    .overlay-close:hover {
-      opacity: 1;
-    }
-
-    .overlay-de {
+    .tooltip-de {
       margin-bottom: 4px;
     }
 
-    .overlay-label {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: rgba(209, 213, 219, 0.9);
-    }
-
-    .overlay-text {
+    .tooltip-de-text,
+    .tooltip-tr-text {
       margin-top: 1px;
     }
 
+    .tooltip-tr {
+      margin-top: 4px;
+      border-top: 1px solid rgba(249, 250, 251, 0.5);
+      padding-top: 4px;
+    }
+
+    /* Sağ taraf paneller */
     .side-column {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 10px;
     }
 
     .panel {
-      background: var(--bg-card);
-      border-radius: 18px;
-      padding: 12px 14px 12px;
-      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.12);
+      border-radius: 16px;
+      padding: 12px 14px;
       font-size: 14px;
+      background: #e0f2fe;
+      box-shadow: 0 10px 22px rgba(15, 23, 42, 0.12);
     }
 
-    .panel-header {
-      display: flex;
-      align-items: center;
-      gap: 8px;
+    .panel.person {
+      background: #e0f2fe;
+      border-left: 6px solid #3b82f6;
+    }
+
+    .panel.scene {
+      background: #dcfce7;
+      border-left: 6px solid #22c55e;
+    }
+
+    .panel.opinion {
+      background: #ffedd5;
+      border-left: 6px solid #fb923c;
+    }
+
+    .panel.proscons {
+      background: #f3e8ff;
+      border-left: 6px solid #a855f7;
+    }
+
+    .panel-title {
+      font-weight: 700;
       margin-bottom: 4px;
     }
 
-    .panel-header span.icon {
-      width: 20px;
-      height: 20px;
-      border-radius: 999px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
-      color: #fff;
-    }
-
-    .panel-header h2 {
-      font-size: 14px;
-      font-weight: 700;
-    }
-
-    .panel.person .panel-header span.icon {
-      background: var(--accent-blue);
-    }
-    .panel.person {
-      border-left: 4px solid var(--accent-blue);
-    }
-
-    .panel.scene .panel-header span.icon {
-      background: var(--accent-green);
-    }
-    .panel.scene {
-      border-left: 4px solid var(--accent-green);
-    }
-
-    .panel.opinion .panel-header span.icon {
-      background: var(--accent-orange);
-    }
-    .panel.opinion {
-      border-left: 4px solid var(--accent-orange);
-    }
-
-    .panel.proscons .panel-header span.icon {
-      background: var(--accent-purple);
-    }
-    .panel.proscons {
-      border-left: 4px solid var(--accent-purple);
+    .panel-title span {
+      margin-right: 4px;
     }
 
     .panel ul {
@@ -348,7 +287,7 @@
 
     @media (max-width: 900px) {
       header.page-header {
-        padding: 14px 12px 0;
+        padding: 12px 12px 6px;
       }
       .page-header-inner {
         flex-direction: column;
@@ -358,8 +297,8 @@
         grid-template-columns: minmax(0, 1fr);
         padding: 0 12px 20px;
       }
-      .image-card {
-        min-height: 360px;
+      .image-card-inner img {
+        max-height: none;
       }
     }
 
@@ -410,54 +349,38 @@
         <!-- Hotspot 1: Mann + Sofa -->
         <button
           class="hotspot"
-          style="top: 42%; left: 38%;"
-          data-short="Mann im Home-Office"
+          style="top: 38%; left: 37%;"
           data-de="Ein Mann mittleren Alters sitzt auf dem Sofa und arbeitet am Laptop."
           data-tr="Orta yaşlı bir adam kanepede oturuyor ve dizüstü bilgisayarda çalışıyor."
-        >
-          <span class="hotspot-label">Mann + Laptop</span>
-        </button>
+        ></button>
 
         <!-- Hotspot 2: Decke -->
         <button
           class="hotspot"
-          style="top: 60%; left: 30%;"
-          data-short="Warme Decke"
+          style="top: 58%; left: 30%;"
           data-de="Er ist in eine dicke, graue Decke eingewickelt, weil er erkältet ist."
           data-tr="Soğuk algınlığı olduğu için kalın, gri bir battaniyeye sarınmış."
-        >
-          <span class="hotspot-label">Decke</span>
-        </button>
+        ></button>
 
         <!-- Hotspot 3: Tisch + Taschentücher -->
         <button
           class="hotspot"
           style="top: 72%; left: 55%;"
-          data-short="Tee & Taschentücher"
           data-de="Auf dem Tisch vor ihm stehen eine Tasse Tee und mehrere Taschentücher."
           data-tr="Önündeki masada bir fincan çay ve birkaç kâğıt mendil duruyor."
-        >
-          <span class="hotspot-label">Tee &amp; Taschentücher</span>
-        </button>
+        ></button>
 
-        <!-- Alt panel: DE / TR açıklama -->
-        <div id="overlay" class="overlay-panel">
-          <div class="overlay-header">
-            <div class="overlay-tags">
-              <span class="tag">Deutsch</span>
-              <span class="tag">Türkisch</span>
-            </div>
-            <button class="overlay-close" aria-label="Schließen">&times;</button>
-          </div>
-          <div class="overlay-de">
-            <div class="overlay-label">Deutsch</div>
-            <div class="overlay-text" id="overlay-de-text">
+        <!-- Baloncuk (tek tane, tıklanan noktanın yanında gösterilecek) -->
+        <div id="tooltip" class="tooltip-box">
+          <div class="tooltip-de">
+            <div class="tooltip-label">Deutsch</div>
+            <div class="tooltip-de-text" id="tooltip-de-text">
               Klicke auf einen Punkt im Bild.
             </div>
           </div>
-          <div class="overlay-tr">
-            <div class="overlay-label">Türkisch</div>
-            <div class="overlay-text" id="overlay-tr-text">
+          <div class="tooltip-tr">
+            <div class="tooltip-label">Türkisch</div>
+            <div class="tooltip-tr-text" id="tooltip-tr-text">
               Resimdeki noktalardan birine tıkla.
             </div>
           </div>
@@ -468,10 +391,7 @@
     <!-- SAĞ: Yapılandırılmış metinler -->
     <section class="side-column">
       <article class="panel person">
-        <div class="panel-header">
-          <span class="icon">👤</span>
-          <h2>Personenbeschreibung (B1)</h2>
-        </div>
+        <div class="panel-title">👤 Personenbeschreibung (B1)</div>
         <ul>
           <li>
             <span class="label-strong">Die Person:</span> Ein Mann mittleren Alters,
@@ -489,10 +409,7 @@
       </article>
 
       <article class="panel scene">
-        <div class="panel-header">
-          <span class="icon">🏠</span>
-          <h2>Bildbeschreibung</h2>
-        </div>
+        <div class="panel-title">🏠 Bildbeschreibung</div>
         <ul>
           <li>
             <span class="label-strong">Vordergrund:</span> Der Mann ist in eine graue
@@ -510,10 +427,7 @@
       </article>
 
       <article class="panel opinion">
-        <div class="panel-header">
-          <span class="icon">💬</span>
-          <h2>Thema & persönliche Meinung</h2>
-        </div>
+        <div class="panel-title">💬 Thema & persönliche Meinung</div>
         <ul>
           <li>
             <span class="label-strong">Thema:</span> Home-Office, Krankheit und die
@@ -532,10 +446,7 @@
       </article>
 
       <article class="panel proscons">
-        <div class="panel-header">
-          <span class="icon">⚖️</span>
-          <h2>Vor- und Nachteile</h2>
-        </div>
+        <div class="panel-title">⚖️ Vor- und Nachteile</div>
         <ul>
           <li>
             <span class="label-strong">Vorteile:</span> Man steckt die Kolleginnen und
@@ -551,27 +462,46 @@
   </main>
 
   <script>
-    const overlay = document.getElementById("overlay");
-    const overlayDe = document.getElementById("overlay-de-text");
-    const overlayTr = document.getElementById("overlay-tr-text");
-    const closeBtn = overlay.querySelector(".overlay-close");
+    const tooltip = document.getElementById("tooltip");
+    const tooltipDe = document.getElementById("tooltip-de-text");
+    const tooltipTr = document.getElementById("tooltip-tr-text");
+    const imgWrapper = document.querySelector(".image-card-inner");
+
+    function showTooltipForHotspot(spot) {
+      const rectWrapper = imgWrapper.getBoundingClientRect();
+      const rectSpot = spot.getBoundingClientRect();
+
+      // hotspot merkez koordinatları (wrapper'a göre)
+      const centerX = rectSpot.left - rectWrapper.left + rectSpot.width / 2;
+      const topY = rectSpot.top - rectWrapper.top;
+
+      tooltip.style.left = centerX + "px";
+      tooltip.style.top = topY - 12 + "px"; // biraz yukarı
+
+      tooltipDe.textContent = spot.dataset.de;
+      tooltipTr.textContent = spot.dataset.tr;
+
+      tooltip.style.display = "block";
+    }
 
     document.querySelectorAll(".hotspot").forEach((spot) => {
       spot.addEventListener("click", (e) => {
         e.stopPropagation();
-        overlayDe.textContent = spot.dataset.de;
-        overlayTr.textContent = spot.dataset.tr;
-        overlay.classList.add("visible");
+        showTooltipForHotspot(spot);
       });
     });
 
-    closeBtn.addEventListener("click", () => {
-      overlay.classList.remove("visible");
+    // Resmin boş bir yerine tıklayınca balon kaybolsun
+    imgWrapper.addEventListener("click", (e) => {
+      if (!e.target.classList.contains("hotspot")) {
+        tooltip.style.display = "none";
+      }
     });
 
+    // Sayfanın başka yerine tıklayınca da gizle
     document.addEventListener("click", (e) => {
-      if (!overlay.contains(e.target) && !e.target.classList.contains("hotspot")) {
-        overlay.classList.remove("visible");
+      if (!imgWrapper.contains(e.target)) {
+        tooltip.style.display = "none";
       }
     });
   </script>
