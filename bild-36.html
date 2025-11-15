@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Bild 36 – Arbeiten im Home-Office trotz Erkältung | Ibrahim</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f5f2ec;
+    }
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 24px;
+      background: #fff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+      position: sticky;
+      top: 0;
+      z-index: 5;
+    }
+    .topbar-title {
+      font-weight: 600;
+      font-size: 18px;
+    }
+    .topbar-buttons button {
+      margin-left: 8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-size: 13px;
+    }
+    .btn-primary { background: #5c7cff; color: #fff; }
+    .btn-ghost { background: #f3f3f8; }
+    .btn-green { background: #3bbf7a; color: #fff; }
+    .btn-orange { background: #ffb34d; color: #fff; }
+
+    .layout {
+      display: flex;
+      max-width: 1200px;
+      margin: 24px auto 40px;
+      padding: 0 16px;
+      gap: 18px;
+    }
+    .image-col {
+      flex: 1.1;
+      position: relative;
+      background: #111;
+      border-radius: 18px;
+      overflow: hidden;
+      min-height: 420px;
+    }
+    .image-col img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hotspot {
+      position: absolute;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 3px solid #fff;
+      background: #ff9a2f;
+      cursor: pointer;
+      box-shadow: 0 0 0 4px rgba(255,154,47,0.4);
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .hotspot:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 0 6px rgba(255,154,47,0.7);
+    }
+
+    .tooltip-box {
+      position: absolute;
+      left: 16px;
+      bottom: 16px;
+      max-width: 80%;
+      background: rgba(0,0,0,0.78);
+      color: #fff;
+      padding: 10px 12px;
+      border-radius: 12px;
+      font-size: 13px;
+      line-height: 1.4;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    }
+    .tooltip-box.hidden {
+      display: none;
+    }
+    .tooltip-lang {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      opacity: 0.8;
+    }
+    .tooltip-de { margin-bottom: 4px; }
+
+    .text-col {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .panel {
+      background: #fff;
+      border-radius: 16px;
+      padding: 12px 14px;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+      font-size: 14px;
+    }
+    .panel-title {
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .panel.badge-blue    { border-left: 6px solid #4d9fff; }
+    .panel.badge-green   { border-left: 6px solid #58c27d; }
+    .panel.badge-orange  { border-left: 6px solid #ff9a2f; }
+    .panel.badge-purple  { border-left: 6px solid #b46dff; }
+    .panel ul {
+      margin: 4px 0 0;
+      padding-left: 18px;
+    }
+    .panel li { margin-bottom: 2px; }
+    .mini-label { font-weight: 600; }
+
+    @media (max-width: 900px) {
+      .layout { flex-direction: column; }
+      .image-col { min-height: 300px; }
+      .tooltip-box { max-width: calc(100% - 32px); }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-title">Arbeiten im Home-Office trotz Erkältung – Bild 36</div>
+    <div class="topbar-buttons">
+      <a href="index.html"><button class="btn-ghost">Startseite</button></a>
+      <button class="btn-primary">Timer Start (später)</button>
+      <button class="btn-green">B1 Text</button>
+      <button class="btn-orange">DE / TR</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="image-col">
+      <img src="bilder/bild36.jpg" alt="Mann arbeitet krank von zu Hause">
+
+      <button class="hotspot"
+              style="top: 40%; left: 35%;"
+              data-de="Ein Mann mittleren Alters sitzt auf dem Sofa und arbeitet am Laptop."
+              data-tr="Orta yaşlı bir adam kanepede oturuyor ve dizüstü bilgisayarda çalışıyor.">
+      </button>
+
+      <button class="hotspot"
+              style="top: 60%; left: 25%;"
+              data-de="Er ist in eine dicke Decke eingewickelt, weil er erkältet ist."
+              data-tr="Soğuk algınlığı olduğu için kalın bir battaniyeye sarınmış.">
+      </button>
+
+      <button class="hotspot"
+              style="top: 70%; left: 55%;"
+              data-de="Auf dem Tisch stehen eine Tasse Tee und Taschentücher."
+              data-tr="Masada bir fincan çay ve kağıt mendiller duruyor.">
+      </button>
+
+      <div id="tooltip" class="tooltip-box hidden">
+        <div class="tooltip-lang">Deutsch</div>
+        <div class="tooltip-de"></div>
+        <div class="tooltip-lang" style="margin-top:6px;">Türkisch</div>
+        <div class="tooltip-tr"></div>
+      </div>
+    </section>
+
+    <section class="text-col">
+      <article class="panel badge-blue">
+        <div class="panel-title">👤 Personenbeschreibung (B1)</div>
+        <ul>
+          <li><span class="mini-label">Die Person:</span> Ein Mann mittleren Alters, der krank aussieht und müde wirkt.</li>
+          <li><span class="mini-label">Die Aktion:</span> Er sitzt auf dem Sofa, arbeitet am Laptop und scheint sich nicht richtig ausruhen zu können.</li>
+          <li><span class="mini-label">Die Stimmung:</span> Die Atmosphäre ist etwas gedrückt, er wirkt angespannt und nicht ganz fit.</li>
+        </ul>
+      </article>
+
+      <article class="panel badge-green">
+        <div class="panel-title">🏠 Bildbeschreibung</div>
+        <ul>
+          <li><span class="mini-label">Vordergrund:</span> Der Mann ist in eine graue Decke eingewickelt, neben ihm liegen Taschentücher.</li>
+          <li><span class="mini-label">Hintergrund:</span> Ein helles Wohnzimmer mit Sofa, Kissen, einer Lampe und ein paar Pflanzen.</li>
+          <li><span class="mini-label">Szene:</span> Eine typische Home-Office-Situation, aber unter dem Einfluss einer Erkältung.</li>
+        </ul>
+      </article>
+
+      <article class="panel badge-orange">
+        <div class="panel-title">💬 Thema & persönliche Meinung</div>
+        <ul>
+          <li><span class="mini-label">Thema:</span> Home-Office, Krankheit und die Frage, ob man trotz Erkältung arbeiten sollte.</li>
+          <li><span class="mini-label">Meine Meinung:</span> Ich finde, man sollte sich bei Krankheit lieber ausruhen, damit man schneller gesund wird.</li>
+          <li><span class="mini-label">In meinem Land:</span> Viele Menschen arbeiten trotzdem weiter, auch wenn sie krank sind, weil sie Angst haben, ihre Arbeit zu verlieren.</li>
+        </ul>
+      </article>
+
+      <article class="panel badge-purple">
+        <div class="panel-title">⚖️ Vor- und Nachteile</div>
+        <ul>
+          <li><span class="mini-label">Vorteile:</span> Man steckt die Kolleginnen und Kollegen nicht an und kann flexibel von zu Hause arbeiten.</li>
+          <li><span class="mini-label">Nachteile:</span> Der Heilungsprozess dauert länger und die Grenze zwischen Arbeit und Erholung verschwimmt.</li>
+        </ul>
+      </article>
+    </section>
+  </main>
+
+  <script>
+    const tooltip = document.getElementById('tooltip');
+    const tooltipDe = tooltip.querySelector('.tooltip-de');
+    const tooltipTr = tooltip.querySelector('.tooltip-tr');
+
+    document.querySelectorAll('.hotspot').forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.stopPropagation();
+        tooltipDe.textContent = btn.dataset.de;
+        tooltipTr.textContent = btn.dataset.tr;
+        tooltip.classList.remove('hidden');
+      });
+    });
+
+    document.addEventListener('click', e => {
+      if (!tooltip.classList.contains('hidden') &&
+          !tooltip.contains(e.target) &&
+          !e.target.classList.contains('hotspot')) {
+        tooltip.classList.add('hidden');
+      }
+    });
+  </script>
+</body>
+</html>
