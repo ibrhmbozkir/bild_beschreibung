@@ -32,86 +32,35 @@
       min-height: 100vh;
     }
 
-    header.page-header {
-      padding: 16px 18px 8px;
+    /* ÜST BAŞLIK (ortada) */
+    .page-header-wrapper {
       background: #fdf7f0;
       border-bottom: 1px solid rgba(148, 163, 184, 0.35);
+      padding: 14px 16px 10px;
     }
 
-    .page-header-inner {
+    .page-header {
       max-width: 1320px;
       margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
+      text-align: center;
     }
 
-    .page-title-block h1 {
+    .page-header h1 {
       font-size: 24px;
       font-weight: 700;
       letter-spacing: 0.01em;
     }
 
-    .page-title-block p {
+    .page-header p {
       margin-top: 4px;
       font-size: 14px;
       color: var(--text-muted);
     }
 
-    .top-actions {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      border-radius: 999px;
-      border: none;
-      font-size: 13px;
-      padding: 6px 14px;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      white-space: nowrap;
-    }
-
-    .btn-ghost {
-      background: #ffffff;
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      color: var(--text-main);
-    }
-
-    .btn-outline {
-      background: transparent;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      color: var(--text-main);
-    }
-
-    .timer-pill {
-      font-size: 13px;
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.06);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .timer-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: #ef4444;
-      box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.25);
-    }
-
+    /* ANA YERLEŞİM */
     main.layout {
       max-width: 1320px;
-      margin: 12px auto 32px;
+      margin: 14px auto 32px;
       padding: 0 18px 24px;
       display: grid;
       grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
@@ -119,7 +68,7 @@
       align-items: flex-start;
     }
 
-    /* Sol taraf: resim tam kaplasın */
+    /* SOL: RESİM KARTI */
     .image-card {
       border-radius: var(--radius-lg);
       overflow: hidden;
@@ -137,12 +86,12 @@
     .image-card-inner img {
       width: 100%;
       height: 100%;
-      max-height: calc(100vh - 140px);
+      max-height: calc(100vh - 160px);
       object-fit: cover;
       display: block;
     }
 
-    /* Hotspotlar */
+    /* HOTSPOTLAR */
     .hotspot {
       position: absolute;
       width: 24px;
@@ -173,11 +122,10 @@
       background: #ffb15f;
     }
 
-    /* Tooltip balonu (DE + TR, noktaya yakın) */
+    /* HOTSPOT BALONCUĞU */
     .tooltip-box {
       position: absolute;
-      max-width: 320px;
-      background: #fbbf24;
+      max-width: 340px;
       background: linear-gradient(
         90deg,
         rgba(251, 191, 36, 0.97),
@@ -223,17 +171,99 @@
 
     .tooltip-tr {
       margin-top: 4px;
-      border-top: 1px solid rgba(249, 250, 251, 0.5);
+      border-top: 1px solid rgba(249, 250, 251, 0.6);
       padding-top: 4px;
     }
 
-    /* Sağ taraf paneller */
-    .side-column {
+    /* SAĞ TARAF: BUTONLAR + PANELLER */
+    .right-column {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 8px;
     }
 
+    /* BUTON BAR tam a-roma stilinde */
+    .control-bar {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 10px 12px;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .control-left,
+    .control-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      border-radius: 999px;
+      border: none;
+      font-size: 13px;
+      padding: 6px 12px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    .btn-blue {
+      background: #4f46e5;
+      color: #ffffff;
+    }
+
+    .btn-blue-outline {
+      background: #ffffff;
+      color: #1f2937;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+    }
+
+    .btn-green {
+      background: #16a34a;
+      color: #ffffff;
+    }
+
+    .btn-orange {
+      background: #f97316;
+      color: #ffffff;
+    }
+
+    .btn-round {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+
+    .time-label {
+      font-size: 14px;
+    }
+
+    .time-label span {
+      font-weight: 700;
+      color: #b91c1c;
+      margin-left: 4px;
+    }
+
+    /* BAŞLIK: STRUKTURIERTE… */
+    .structure-title {
+      margin-top: 4px;
+      font-weight: 700;
+      font-size: 15px;
+    }
+
+    /* PANELLER */
     .panel {
       border-radius: 16px;
       padding: 12px 14px;
@@ -286,13 +316,6 @@
     }
 
     @media (max-width: 900px) {
-      header.page-header {
-        padding: 12px 12px 6px;
-      }
-      .page-header-inner {
-        flex-direction: column;
-        align-items: flex-start;
-      }
       main.layout {
         grid-template-columns: minmax(0, 1fr);
         padding: 0 12px 20px;
@@ -303,10 +326,10 @@
     }
 
     @media (max-width: 600px) {
-      .page-title-block h1 {
+      .page-header h1 {
         font-size: 20px;
       }
-      .page-title-block p {
+      .page-header p {
         font-size: 13px;
       }
       .panel {
@@ -316,26 +339,13 @@
   </style>
 </head>
 <body>
-  <!-- Üst başlık -->
-  <header class="page-header">
-    <div class="page-header-inner">
-      <div class="page-title-block">
-        <h1>Arbeiten im Home-Office trotz Erkältung – Bild&nbsp;36</h1>
-        <p>
-          Bildbeschreibung-Training (B1) mit klickbaren Punkten und
-          deutsch–türkischer Erklärung.
-        </p>
-      </div>
-      <div class="top-actions">
-        <a href="index.html"><button class="btn btn-ghost">Startseite</button></a>
-        <button class="btn btn-outline">Nur Bildbeschreibung üben</button>
-        <div class="timer-pill">
-          <span class="timer-dot"></span>
-          <span>Zeit: 00:00</span>
-        </div>
-      </div>
-    </div>
-  </header>
+  <!-- ÜST BAŞLIK (ortada) -->
+  <div class="page-header-wrapper">
+    <header class="page-header">
+      <h1>Arbeiten im Home-Office trotz Erkältung</h1>
+      <p>Bildbeschreibung-Training (B1) mit klickbaren Punkten und deutsch–türkischer Erklärung.</p>
+    </header>
+  </div>
 
   <main class="layout">
     <!-- SOL: Resim + Hotspots -->
@@ -370,7 +380,7 @@
           data-tr="Önündeki masada bir fincan çay ve birkaç kâğıt mendil duruyor."
         ></button>
 
-        <!-- Baloncuk (tek tane, tıklanan noktanın yanında gösterilecek) -->
+        <!-- Baloncuk -->
         <div id="tooltip" class="tooltip-box">
           <div class="tooltip-de">
             <div class="tooltip-label">Deutsch</div>
@@ -388,8 +398,33 @@
       </div>
     </section>
 
-    <!-- SAĞ: Yapılandırılmış metinler -->
-    <section class="side-column">
+    <!-- SAĞ: Butonlar + yapılandırılmış metin -->
+    <section class="right-column">
+      <!-- Buton bar (a-roma tarzı) -->
+      <div class="control-bar">
+        <div class="control-left">
+          <button class="btn btn-blue">Umschalten</button>
+          <button class="btn btn-blue btn-round" title="Telegram">
+            ✈️
+          </button>
+          <button class="btn btn-blue-outline">Zurück</button>
+          <a href="index.html">
+            <button class="btn btn-blue-outline">Startseite</button>
+          </a>
+          <button class="btn btn-blue-outline">Weiter</button>
+        </div>
+        <div class="control-right">
+          <div class="time-label">
+            Zeit:
+            <span id="timer-display">0:00</span>
+          </div>
+          <button id="btn-start" class="btn btn-green">Start</button>
+          <button id="btn-reset" class="btn btn-orange">Zurücksetzen</button>
+        </div>
+      </div>
+
+      <div class="structure-title">Strukturierte Bildbeschreibung B1:</div>
+
       <article class="panel person">
         <div class="panel-title">👤 Personenbeschreibung (B1)</div>
         <ul>
@@ -409,7 +444,7 @@
       </article>
 
       <article class="panel scene">
-        <div class="panel-title">🏠 Bildbeschreibung</div>
+        <div class="panel-title">🌿 Bildbeschreibung</div>
         <ul>
           <li>
             <span class="label-strong">Vordergrund:</span> Der Mann ist in eine graue
@@ -462,6 +497,7 @@
   </main>
 
   <script>
+    // === Hotspot baloncuk mantığı ===
     const tooltip = document.getElementById("tooltip");
     const tooltipDe = document.getElementById("tooltip-de-text");
     const tooltipTr = document.getElementById("tooltip-tr-text");
@@ -471,12 +507,11 @@
       const rectWrapper = imgWrapper.getBoundingClientRect();
       const rectSpot = spot.getBoundingClientRect();
 
-      // hotspot merkez koordinatları (wrapper'a göre)
       const centerX = rectSpot.left - rectWrapper.left + rectSpot.width / 2;
       const topY = rectSpot.top - rectWrapper.top;
 
       tooltip.style.left = centerX + "px";
-      tooltip.style.top = topY - 12 + "px"; // biraz yukarı
+      tooltip.style.top = topY - 12 + "px";
 
       tooltipDe.textContent = spot.dataset.de;
       tooltipTr.textContent = spot.dataset.tr;
@@ -491,19 +526,57 @@
       });
     });
 
-    // Resmin boş bir yerine tıklayınca balon kaybolsun
     imgWrapper.addEventListener("click", (e) => {
       if (!e.target.classList.contains("hotspot")) {
         tooltip.style.display = "none";
       }
     });
 
-    // Sayfanın başka yerine tıklayınca da gizle
     document.addEventListener("click", (e) => {
       if (!imgWrapper.contains(e.target)) {
         tooltip.style.display = "none";
       }
     });
+
+    // === Basit TIMER (Start / Reset) ===
+    const timerDisplay = document.getElementById("timer-display");
+    const btnStart = document.getElementById("btn-start");
+    const btnReset = document.getElementById("btn-reset");
+
+    let timer = null;
+    let seconds = 0;
+    let running = false;
+
+    function renderTime() {
+      const m = Math.floor(seconds / 60);
+      const s = seconds % 60;
+      timerDisplay.textContent = m + ":" + (s < 10 ? "0" + s : s);
+    }
+
+    btnStart.addEventListener("click", () => {
+      if (!running) {
+        running = true;
+        btnStart.textContent = "Pause";
+        timer = setInterval(() => {
+          seconds += 1;
+          renderTime();
+        }, 1000);
+      } else {
+        running = false;
+        btnStart.textContent = "Start";
+        clearInterval(timer);
+      }
+    });
+
+    btnReset.addEventListener("click", () => {
+      running = false;
+      clearInterval(timer);
+      seconds = 0;
+      renderTime();
+      btnStart.textContent = "Start";
+    });
+
+    renderTime();
   </script>
 </body>
 </html>
