@@ -1,1 +1,32 @@
 
+{
+  "images": [
+    {
+      "id": 36,
+      "title": "Arbeiten im Home-Office trotz Erkältung",
+      "subtitle": "Mann mit Decke und Laptop auf dem Sofa",
+      "isNew": true,
+      "description": "Ein Mann sitzt zu Hause auf dem Sofa, trägt eine warme Decke und arbeitet an seinem Laptop. Er wirkt erkältet und konzentriert sich trotzdem auf seine Arbeit."
+    },
+    {
+      "id": 35,
+      "title": "Online-Unterricht im Wohnzimmer",
+      "subtitle": "Frau lernt online zu Hause",
+      "isNew": true
+    },
+    {
+      "id": 34,
+      "title": "Familienfrühstück am Wochenende",
+      "subtitle": "Familie sitzt gemeinsam am Tisch",
+      "isNew": true
+    },
+    {
+      "id": 33,
+      "title": "Besprechung im Büro",
+      "subtitle": "Kollegen sprechen miteinander",
+      "isNew": true
+    }
+
+    /* Buraya 32, 31, ... 1 için benzer objeleri ekle */
+  ]
+}
