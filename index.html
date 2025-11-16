@@ -386,7 +386,7 @@
     <script>
         // AYARLAR
         const IMAGES_PER_PAGE = 12; // her sayfada kaç kart
-        const DATA_URL = 'bilder.json'; // JSON dosyası
+        const DATA_URL = './bilder.json?v=1'; // JSON dosyası
 
         let ALL_IMAGES = [];     // JSON'dan gelen liste
         let TOTAL_IMAGES = 0;
@@ -586,32 +586,44 @@
         });
 
         // JSON'u yükle
-        document.addEventListener('DOMContentLoaded', function() {
-            fetch(DATA_URL)
-                .then(res => res.json())
-                .then(data => {
-                    // data.images bekliyoruz
-                    ALL_IMAGES = (data.images || []).slice();
+// JSON'u yükle
+document.addEventListener('DOMContentLoaded', function () {
+    fetch(DATA_URL)
+        .then(res => {
+            console.log('Antwort von bilder.json:', res.status, res.statusText);
+            if (!res.ok) {
+                throw new Error('HTTP ' + res.status + ' ' + res.statusText);
+            }
+            return res.json();
+        })
+        .then(data => {
+            console.log('JSON-Daten:', data);
 
-                    // id’ye göre DESC sırala (36,35,34,…)
-                    ALL_IMAGES.sort((a, b) => b.id - a.id);
+            // data.images bekliyoruz
+            ALL_IMAGES = (data.images || []).slice();
 
-                    TOTAL_IMAGES = ALL_IMAGES.length;
-                    statsTotalEl.textContent = TOTAL_IMAGES;
+            // id’ye göre DESC sırala (36,35,34,…)
+            ALL_IMAGES.sort((a, b) => b.id - a.id);
 
-                    TOTAL_PAGES = Math.max(
-                        1,
-                        Math.ceil(TOTAL_IMAGES / IMAGES_PER_PAGE)
-                    );
+            TOTAL_IMAGES = ALL_IMAGES.length;
+            statsTotalEl.textContent = TOTAL_IMAGES;
 
-                    initView();
-                })
-                .catch(err => {
-                    console.error('JSON Ladefehler:', err);
-                    galleryEl.innerHTML =
-                        '<div class="no-images">Fehler beim Laden der Bilderdaten.</div>';
-                });
+            TOTAL_PAGES = Math.max(
+                1,
+                Math.ceil(TOTAL_IMAGES / IMAGES_PER_PAGE)
+            );
+
+            initView();
+        })
+        .catch(err => {
+            console.error('JSON Ladefehler:', err);
+            galleryEl.innerHTML =
+                '<div class="no-images">Fehler beim Laden der Bilderdaten (' +
+                (err && err.message ? err.message : 'unbekannter Fehler') +
+                ').</div>';
         });
+});
+
     </script>
 </body>
 </html>
